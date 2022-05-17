@@ -1,0 +1,34 @@
+package SortingAlgorithms;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class MergeSortAlgorithm {
+
+	public static void main(String[] args) {
+		
+		Scanner scanner=new Scanner(System.in);
+		ArrayList<Integer> arrayList=new ArrayList<Integer>();
+		System.out.println("Enter the size of an Array");
+		int sizeOfList=scanner.nextInt();
+		System.out.println("Enter the array elements");
+		for(int i=0;i<sizeOfList;i++) {
+			arrayList.add(scanner.nextInt());
+		}
+		
+		mergerSort(arrayList,0,arrayList.size()-1);
+
+	}
+
+	private static void mergerSort(ArrayList<Integer> arrayList, int beg, int end) {
+		
+		if(beg < end) {
+			  int mid = (beg + end) / 2;  
+		      mergerSort(arrayList, beg, mid);  
+		      mergerSort(arrayList, mid + 1, end);  
+		      merge(arrayList, beg, mid, end); 
+		}
+		
+	}
+
+}

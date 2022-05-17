@@ -1,0 +1,74 @@
+package HomeWork.SimpleCollectionExe;
+
+import java.util.Scanner;
+import java.util.TreeMap;
+
+
+public class StudentDetails {
+	
+	protected static long regNo=100000001;
+	protected String studentName;
+	protected String mobileNo;
+	protected String emailId;
+	protected byte studentAge;
+	static TreeMap<Long, Student> database=new TreeMap<>();
+	
+
+	public void studentDetails() {
+		
+		Scanner scanner=new Scanner(System.in);
+		
+		byte i=1;
+		
+		System.out.println();
+		System.out.println("   ** Welcome to Student Account Creation **");
+		System.out.println();
+		while(i<6) {
+			
+				if(i == 1 ) {
+					System.out.println("Enter your name :");
+					this.studentName= scanner.next();
+					i++;
+					
+				}
+				else if(i == 2) {
+					System.out.println("Enter your age : ");
+					this.studentAge=Byte.parseByte(scanner.next());
+					i=3;
+				}
+				else if(i == 3) {
+					System.out.println("Enter Your mobile No");
+					this.mobileNo=scanner.next();
+					if(mobileNo.length() == 10) {
+						i=4;
+					}
+					else {
+						System.out.println("!!! Enter the 10 digit mobile number !!!");
+						i=3;
+					}
+
+				}
+				else if(i == 4) {
+					System.out.println("Enter Email Id : ");
+					this.emailId=scanner.next();
+					if(emailId.contains("@") && (emailId.contains(".com") || emailId.contains(".in"))) {
+						i=5;
+					}
+					else {
+						System.out.println("Email Id must contain '@' and '.com' ");
+						i=4;
+					}
+				}
+				else if(i == 5) {
+					Student details=new Student(studentName,studentAge,mobileNo,emailId);
+					database.put(regNo, details);
+					regNo++;
+					i++;
+				}
+
+				
+		}
+		
+	}
+
+}

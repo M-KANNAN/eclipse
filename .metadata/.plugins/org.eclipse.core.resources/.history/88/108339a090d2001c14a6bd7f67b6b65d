@@ -1,0 +1,59 @@
+package HomeWork;
+
+
+ class MyOwnException extends Exception{
+	public MyOwnException(String str) {
+		super(str);
+	}
+	 
+}
+
+
+public class ArrayExe {
+
+	public static void main(String[] args) {
+//		
+//		int age=10;
+//		
+//		try {
+//			
+//			if(age < 18) {
+//				throw new MyOwnException("Not eligible");
+//			}
+//			else {
+//				System.out.println("Eligible");
+//			}
+//			
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+		
+		
+		int n = 10, c = 2, m = 5;
+		 int quotient=n/c;
+	        int sum=quotient+qutiontFinder(quotient,m);
+	        System.out.println(sum);
+
+	    }
+	    public static  int qutiontFinder(int quotient, int m) {
+	        if(quotient < m){
+	            return 0;
+	        }
+	        else{
+	           int rem=quotient%m;
+	           int quo= quotient/m;
+	           int sum=0;
+	           if(rem+quo/m > m){
+	              sum=sum+qutiontFinder(quo,m);
+	           }
+	           else{
+	               return (sum+quo);
+	           }
+	        }
+	    }
+		
+		
+		
+	}
+
+}

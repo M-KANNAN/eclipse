@@ -1,0 +1,39 @@
+package HomeWork;
+
+
+ class MyOwnException extends Exception{
+	public MyOwnException(String str) {
+		super(str);
+	}
+	 
+}
+
+
+public class ArrayExe {
+
+	public static void main(String[] args) {
+		
+		int age=10;
+		
+		try {
+			
+			if(age < 18) {
+				throw new MyOwnException("Not eligible");
+			}
+			else {
+				System.out.println("Eligible");
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}

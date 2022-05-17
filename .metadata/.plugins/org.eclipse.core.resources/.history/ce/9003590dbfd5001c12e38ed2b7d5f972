@@ -1,0 +1,26 @@
+package HomeWork;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+public class ArrayExe {
+
+	public static void main(String[] args) {
+
+		
+		
+		ArrayList<String> unsorted=new ArrayList<String>();
+		unsorted.add("31415926535897932384626433832795");
+		unsorted.add("6");
+		unsorted.add("10");
+		unsorted.add("1");
+		
+		
+		
+	    }
+		
+		
+		
+	}
+

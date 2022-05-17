@@ -1,0 +1,43 @@
+package HomeWork;
+
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+public class ArrayExe {
+
+	public static void main(String[] args) {
+
+		
+		
+		ArrayList<String> unsorted=new ArrayList<String>();
+		unsorted.add("31415926535897932384626433832795");
+		unsorted.add("6");
+		unsorted.add("10");
+		unsorted.add("1");
+		
+		String temp=null;
+        BigInteger A, B; 
+        for(int i=0;i<unsorted.size();i++){
+            A  =new BigInteger(unsorted.get(i));
+            for(int j=i+1;j<unsorted.size();j++){
+                B  =new BigInteger(unsorted.get(j));
+                if(A.compareTo(B) > 0){
+                    temp=unsorted.get(j);
+                    unsorted.set(j,unsorted.get(i));
+                    unsorted.set(i,temp);
+                    
+                }
+            }
+        }
+        System.out.println(unsorted);
+		
+		
+		
+	    }
+		
+		
+		
+	}
+

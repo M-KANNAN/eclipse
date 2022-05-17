@@ -1,0 +1,21 @@
+package Training;
+
+import java.util.Scanner;
+
+public class Program18 {
+
+	public static void main(String[] args) {
+		
+		Scanner scanner=new Scanner(System.in);
+		System.out.println("Enter a value for A :");
+		short a=scanner.nextShort();
+		System.out.println("Enter a value for B :");
+		short b=scanner.nextShort();
+		System.out.println("++a-b– : "+(++a-b--));
+		System.out.println("a%b++ : "+a%b++);
+		System.out.println("a*=b+5 : "+(a*=b+5));
+		System.out.println("x=69>>>2 : "+(a=69>>>2));
+		
+	}
+
+}
