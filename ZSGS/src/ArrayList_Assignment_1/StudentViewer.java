@@ -73,10 +73,10 @@ public class StudentViewer {
 		int i=0;
 		for(StudentPojo pojo : StudentDetails.studentDatabase) {
 			if(regNo == pojo.getStudentRegNo()) {
+				i=StudentDetails.studentDatabase.indexOf(pojo);
 				StudentDetails.studentDatabase.remove(i);	
 				break;
 			}
-			i++;	
 		}
 		
 		

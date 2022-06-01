@@ -15,9 +15,10 @@ public class StudentDetails {
 	
 	public void studentDetails() {
 		Scanner scanner=new Scanner(System.in);
-		
+
 		System.out.println("Enter your RegNo :");
 		this.StudentRegNo=scanner.nextLong();
+		
 		System.out.println("Enter your name ");
 		scanner.nextLine();
 		this.studentName=scanner.nextLine();
@@ -33,8 +34,7 @@ public class StudentDetails {
 		StudentPojo pojo=new StudentPojo();
 		pojo.setStudent(studentName, studentAge, studentMobileNo, studentEmailID,StudentRegNo);
 		studentDatabase.add(pojo);
-		
-		
+	
 		
 	}
 

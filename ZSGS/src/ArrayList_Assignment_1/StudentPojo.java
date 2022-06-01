@@ -33,6 +33,5 @@ public class StudentPojo {
 		this.StudentRegNo=StudentRegNo;
 	}
 		
-	
-	
+
 }
