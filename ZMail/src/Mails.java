@@ -1,5 +1,5 @@
-import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.Map.Entry;
 import java.util.Scanner;
 
 public class Mails {
@@ -91,18 +91,30 @@ public class Mails {
 		System.out.println("------INBOX-----");
 		
 		CreateAccount details=CreateAccount.database.get(userName);
-		LinkedHashMap mails=details.mails;
+		LinkedHashMap<Integer, Mails> mails=details.mails;
+//		
+//		Iterator<Integer> iterator=mails.keySet().iterator();
+//		while(iterator.hasNext()) {
+//			int m = iterator.next();
+//			Mails output=(Mails) mails.get(m);
+//			System.out.println("MessageId : "+output.mailId);
+//			System.out.println("From : "+output.from);
+//			System.out.println("To : "+output.to);
+//			System.out.println("Subject : "+output.subject);
+//			System.out.println("Message :"+output.messege);
+//		}
 		
-		Iterator<Integer> iterator=mails.keySet().iterator();
-		while(iterator.hasNext()) {
-			int m = iterator.next();
-			Mails output=(Mails) mails.get(m);
-			System.out.println("MessageId : "+output.mailId);
+		for(Entry<Integer, Mails> entry : mails.entrySet()) {
+			
+			Mails output=entry.getValue();
+			System.out.println("MessageId : "+entry.getKey());
 			System.out.println("From : "+output.from);
 			System.out.println("To : "+output.to);
 			System.out.println("Subject : "+output.subject);
 			System.out.println("Message :"+output.messege);
+	
 		}
+		
 		
 	}
 
@@ -111,17 +123,29 @@ public class Mails {
 		
 		System.out.println("------OUTBOX------");
 		CreateAccount details=CreateAccount.database.get(userName);
-		LinkedHashMap mails=details.sendMails;
+		LinkedHashMap<Integer, Mails> mails=details.sendMails;
 		
-		Iterator<Integer> iterator=mails.keySet().iterator();
-		while(iterator.hasNext()) {
-			int m = iterator.next();
-			Mails output=(Mails) mails.get(m);
-			System.out.println("MessageId : "+output.mailId);
+//		Iterator<Integer> iterator=mails.keySet().iterator();
+//		while(iterator.hasNext()) {
+//			int m = iterator.next();
+//			Mails output=(Mails) mails.get(m);
+//			System.out.println("MessageId : "+output.mailId);
+//			System.out.println("From : "+output.from);
+//			System.out.println("To : "+output.to);
+//			System.out.println("Subject : "+output.subject);
+//			System.out.println("Message :"+output.messege);
+//		}
+		
+		
+		for(Entry<Integer, Mails> entry : mails.entrySet()) {
+			
+			Mails output=entry.getValue();
+			System.out.println("MessageId : "+entry.getKey());
 			System.out.println("From : "+output.from);
 			System.out.println("To : "+output.to);
 			System.out.println("Subject : "+output.subject);
 			System.out.println("Message :"+output.messege);
+	
 		}
 		
 	}
@@ -134,7 +158,6 @@ public class Mails {
 		int deleteId=scanner.nextInt();
 		mails.remove(deleteId);
 		System.out.println("Message deleted Successfully");
-		
 		
 	}
 

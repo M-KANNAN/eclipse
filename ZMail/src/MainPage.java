@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 public class MainPage {
 	public static void main() {
-		int i=0;
-		while(i<2) {
+		boolean isExit=true;
+		while(isExit) {
 			System.out.println("-------WELCOME TO MAIL------");
 			System.out.println("*****************************");
 			System.out.println("Enter 1 to create new Account");
@@ -16,17 +16,15 @@ public class MainPage {
 				switch(choice) {
 					case 1 :{
 						new CreateAccount().createAccount();
-						i=1;
 						break;
 					}
 					case 2 :{
 						new LoginPage().loginPage();
-						i=1;
 						break;
 					}
 					case 3 :{
 						System.out.println("-------THANK YOU-------");
-						i=i+2;
+						isExit=false;
 						break;
 					}
 				}
@@ -40,8 +38,6 @@ public class MainPage {
 		
 		
 	}
-	
-
 	public static void main(String[] args) {
 		main();
 		
