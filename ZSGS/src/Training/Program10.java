@@ -23,6 +23,7 @@ public class Program10 {
 			System.out.print(list.get(0));
 		}
 		scanner.close();
+		
 	}
 
 }

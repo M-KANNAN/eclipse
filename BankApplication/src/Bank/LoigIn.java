@@ -16,7 +16,7 @@ public class LoigIn {
 			String mobile=scanner.next();
 			CreateAccount details=CreateAccount.database.get(accountNumber);
 			if(i == 1) {
-				if(details.accountNumber != null && details.mobile.equals(mobile)) {
+				if(details != null && details.mobile.equals(mobile)) {
 					
 						System.out.println("$$$$$$$$$Loged in Successfully$$$$$$$$$$");
 						this.transcationPage(accountNumber);

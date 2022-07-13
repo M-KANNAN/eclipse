@@ -17,7 +17,6 @@ public class InsertionSortingAlgorithm {
 			arrayList.add(scanner.nextInt());
 		}
 		
-		
 		int key=0;//value holder
 		int j=0;
 		for(int i=1;i<arrayList.size();i++) { // i must be starts with 1
@@ -25,7 +24,7 @@ public class InsertionSortingAlgorithm {
 			j=i-1;//0 postion tarverser //j=1
 			while(j >= 0 && arrayList.get(j) > key) {
 				arrayList.set(j+1, arrayList.get(j));
-				j=j-1;
+			
 			}
 			
 			arrayList.set(j+1, key);

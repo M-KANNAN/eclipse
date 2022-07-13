@@ -20,9 +20,9 @@ public class UserTransaction {
 		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
 		System.out.println("Enter the amount to be deposited :");
 		double moneyDeposite=scanner.nextDouble();
-		if(moneyDeposite < 0 || moneyDeposite ==0) {
+		if(moneyDeposite <= 0 ) {
 			System.out.println("!!! INVALID-DEPOSITE !!!");
-			this.balanceDeposite(accountNumber);
+			//this.balanceDeposite(accountNumber);
 		}
 		else {
 			details.balance+=moneyDeposite;
@@ -38,7 +38,7 @@ public class UserTransaction {
 		System.out.println("Enter the Amount to be transferd :");
 		double moneyTransfer=scanner.nextDouble();
 
-		if(moneyTransfer < senderDetails.balance) {
+		if(moneyTransfer >=0 && moneyTransfer < senderDetails.balance) {
 			System.out.println("Enter the Account number for transfer :");
 			long transferAcountnumber=scanner.nextLong();
 			CreateAccount reciverDetails=CreateAccount.database.get(transferAcountnumber);
@@ -64,9 +64,9 @@ public class UserTransaction {
 		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
 		System.out.println("Enter the amount to be withdraw :");
 		double moneyWithdraw=scanner.nextDouble();
-		if(moneyWithdraw < 0 || moneyWithdraw == 0 || moneyWithdraw > details.balance) {
+		if(moneyWithdraw <=0 && moneyWithdraw > details.balance) {
 			System.out.println("!!! Withdraw-Invaild !!!");
-			this.balanceWithdraw(accountNumber);
+			//this.balanceWithdraw(accountNumber);
 		}
 		else {
 			moneyWithdraw=details.balance-moneyWithdraw;

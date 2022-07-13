@@ -1,63 +1,37 @@
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class QueenAttack2 {
 
 	public static void main(String[] args) {
 		
-		int arr[][] = new int[8][8];
-		arr[3][3]=1;
-		int count=0;
-		for(int i=0;i<8;i++) { // ROW
-			if(arr[3][i] == 0) {
-				count++;
-			}
-			else if(arr[i][i] == 1) {
-				continue;
-			}
-			else {
-				break;
-			}
-		}
-		System.out.println(count);
-		for(int i=0;i<8;i++) {   // column
-			if(arr[i][3] == 0) {
-				count++;
-			}
-			else if(arr[i][i] == 1) {
-				continue;
-			}
-			else {
-				break;
-			}
-		}
-		System.out.println(count);
-		
-		for(int i=0;i<8;i++) {   // first diagonal
-			if(arr[i][i] == 0) {
-				count++;
-			}
-			else if(arr[i][i] == 1) {
-				continue;
-			}
-			else {
-				break;
-			}
-		}
-		System.out.println(count);
-		
-		for(int i=0;i<8;i++) {   // first diagonal
-			if(arr[i][7-i] == 0) {
-				count++;
-			}
-			else if(arr[i][i] == 1) {
-				continue;
-			}
-			else {
-				break;
-			}
+		ArrayList<ArrayList<Integer>> list=new ArrayList<ArrayList<Integer>>();
+		list.add(new ArrayList<Integer>(Arrays.asList(5,5)));
+		list.add(new ArrayList<Integer>(Arrays.asList(4,2)));
+		list.add(new ArrayList<Integer>(Arrays.asList(2,3)));
+		int arr[][]=new int[5][5];
+		for(ArrayList<Integer> obj : list) {
+			arr[obj.get(0)-1][obj.get(1)-1] = 1;
 		}
 		
-		System.out.println(count);
+		// Queen position
+		
+		arr[3][2]=-1;
+		
+		printArray(arr);
+		
+		
+	
+	}
 
+	private static void printArray(int[][] arr) {
+		for(int i=0;i<arr.length;i++) {
+			for(int j=0;j<arr.length;j++) {
+				System.out.print(arr[i][j]+ "\t");
+			}
+			System.out.println();
+		}
+		
 	}
 
 }

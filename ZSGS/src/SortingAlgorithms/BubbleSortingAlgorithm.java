@@ -1,6 +1,7 @@
 package SortingAlgorithms;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class BubbleSortingAlgorithm {
@@ -17,9 +18,11 @@ public class BubbleSortingAlgorithm {
 			arrayList.add(scanner.nextInt());
 		}
 		
+		
 		//Bubble sort is just swapping the two variables if the cobndition meets
 		
 		int temp=0;
+		int count=0;
 		
 		for(int i=0;i<arrayList.size();i++) {
 			for(int j=i+1;j<arrayList.size();j++) {
@@ -27,9 +30,11 @@ public class BubbleSortingAlgorithm {
 					temp=arrayList.get(j);
 					arrayList.set(j, arrayList.get(i));
 					arrayList.set(i, temp);
+					++count;
 				}
 			}
 		}
+		
 		System.out.println(arrayList);
 		scanner.close();
 	}
