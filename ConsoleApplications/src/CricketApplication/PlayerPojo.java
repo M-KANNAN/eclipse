@@ -7,8 +7,31 @@ public class PlayerPojo {
 	private int ballFaced;
 	private int smashedFours;
 	private int smashedSixers;
-	private boolean status;
+	private boolean availableStatus;
+	private boolean wicketStatus;
+	private int ballsBowled;
+	private int runGivenInBowling;
+	private int wicketTaken;
 	
+	
+	public int getWicketTaken() {
+		return wicketTaken;
+	}
+	public void setWicketTaken(int wicketTaken) {
+		this.wicketTaken = wicketTaken;
+	}
+	public int getballsBowled() {
+		return ballsBowled;
+	}
+	public void setballsBowled(int oversBowled) {
+		this.ballsBowled = oversBowled;
+	}
+	public int getRunGivenInBowling() {
+		return runGivenInBowling;
+	}
+	public void setRunGivenInBowling(int runGivenInBowling) {
+		this.runGivenInBowling = runGivenInBowling;
+	}
 	public String getName() {
 		return name;
 	}
@@ -39,15 +62,20 @@ public class PlayerPojo {
 	public void setSmashedSixers(int smashedSixers) {
 		this.smashedSixers = smashedSixers;
 	}
-	public boolean setStatus() {
-		return status;
+	public boolean getAvailableStatus() {
+		return availableStatus;
 	}
-	public void setStatus(boolean status) {
-		this.status = status;
+	public void setAvailableStatus(boolean availableStatus) {
+		this.availableStatus = availableStatus;
+	}
+	public boolean getWicketStatus() {
+		return wicketStatus;
+	}
+	public void setWicketStatus(boolean wicketStatus) {
+		this.wicketStatus = wicketStatus;
 	}
 	
-	
-	
+
 	
 	
 
