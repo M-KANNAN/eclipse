@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+
+#outerDiv{
+	display: inline-block;
+   	box-shadow: 5px 5px 5px 5px;
+    margin-top: 20%;
+    margin-left: 35%;
+    width: 400px;
+    height: 400px;
+
+}
+
+#textId{
+	display: inline-block;
+    font-family: serif;
+    font-weight: bold;
+    font-size: 25px;
+    color: hotpink;
+    margin-top: 20%;
+    margin-left: 10%;
+}
+
+#signIn,#signUp{
+	cursor: pointer;
+    box-shadow: 1px 1px;
+    margin-top: 20%;
+    width: -webkit-fill-available;
+    font-size: 20px;
+    font-family: fantasy;
+    background: blanchedalmond;
+    border-radius: 10pxpx;
+}

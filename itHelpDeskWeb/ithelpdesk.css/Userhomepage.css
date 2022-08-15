@@ -1,0 +1,149 @@
+@charset "UTF-8";
+
+body {
+	height: 100%;
+	width: 100%;
+	background-image: url(wallpaper.jpg); //
+	background-position: center;
+	background-size: cover;
+}
+
+#banner {
+	position: absolute;
+	color: chocolate;
+	font-size: -webkit-xxx-large;
+	left: 30%;
+}
+
+#lable {
+	position: absolute;
+	left: 75%;
+	color: whitesmoke;
+	font-size: 30px;
+	top: 10%;
+}
+
+#name {
+	position: absolute;
+	left: 85%;
+	color: whitesmoke;
+	font-size: 30px;
+	border: solid 1px;
+	cursor: pointer;
+	top: 10%;
+}
+
+#Ticket_Raiser_form {
+	/* 	position: absolute;
+	left: 50%;
+	top: 25%; */
+	display: none;
+}
+
+#discription {
+	height: 80px;
+}
+
+ul {
+	margin-top: 10%;
+	display: inline-block;
+	align-items: center;
+	justify-content: space-between;
+}
+
+ul li {
+	list-style: none;
+	display: inline-block;
+	margin: 0 20px;
+}
+
+ul li a {
+	text-decoration: none;
+	color: white;
+	text-transform: uppercase;
+	position: relative;
+}
+
+ul li ::after {
+	content: '';
+	height: 3px;
+	width: 0;
+	background: skyblue;
+	position: absolute;
+	left: 0;
+	bottom: -10px;
+	transition: 0.5s;
+}
+
+ul li :hover::after {
+	width: 100%;
+}
+
+#ticket_Raiser_Box,#ticket_Updator_form {
+	width: 100%;
+	height: 100%;
+	border: 1px;
+}
+
+#ticket_Raiser_outer_box ,#ticket_Updater_outer_box{
+	width: 500px;
+	height: 350px;
+	border: solid 1px;
+	background-color: transparent;
+	
+	margin-left: 30%;
+	display: inline-block;
+}
+#ticket_Updater_outer_box{
+	margin-top: 20%;
+}
+
+}
+#ticket_Raiser_Heading,#ticket_Updator_Heading{
+	color: snow;
+	font-size: 30px;
+	font-family: 'Times New Roman', Times, serif;
+	font-weight: bold;
+	padding-top: 20px;
+	padding-left: 100px;
+	position: absolute;
+	left: 35%;
+}
+
+label {
+	font-size: 20px;
+	color: snow;
+}
+
+#discription {
+	height: 80px;
+	width: 70%;
+}
+
+#ticketForm,#ticketUpdaterForm {
+	margin-top: 18%;
+	margin-left: 10%;
+}
+
+
+
+#button_submit1,#button_Update{
+    margin-top: 20px;
+    margin-left: 30%;
+    font-size: 20px;
+}
+
+input{
+    size: 20px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+#user_Tickets,#ticket_Updator{
+	display: none;
+}
+
+table{
+    width: 100%;
+    color: snow ;
+}

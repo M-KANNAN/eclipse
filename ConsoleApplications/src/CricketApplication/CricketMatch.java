@@ -1,5 +1,6 @@
 package CricketApplication;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map.Entry;
@@ -14,7 +15,7 @@ public class CricketMatch {
 	// teamBowlingDetails=new LinkedHashMap<String,
 	// HashMap<Integer,EveryBallScore>>();
 
-	// ArrayList<Integer> arrayList=new ArrayList<Integer>();
+	 ArrayList<Integer> arrayList=new ArrayList<Integer>();
 
 	int count = 0;
 
@@ -122,7 +123,7 @@ public class CricketMatch {
 							}
 						}
 						while (true) {
-							// if(arrayList.size()<11) {
+							 if(arrayList.size()<11) {
 
 							strikerPlayer = scanner.nextInt();
 							if (teamDetails.get(teamtoBat).get(strikerPlayer).getAvailableStatus()
@@ -132,10 +133,13 @@ public class CricketMatch {
 								System.out.println("!!! Select diffrent player !!!");
 								System.out.println();
 							}
-//							}
-//							else {
-//								break;
-//							}
+							}
+							else {
+								System.out.println();
+								System.out.println("\t\t\t ALL OUT");
+								break;
+								
+							}
 						}
 
 					}
@@ -171,7 +175,7 @@ public class CricketMatch {
 							}
 						}
 						while (true) {
-							// if(arrayList.size()<11) {
+							 if(arrayList.size()<11) {
 
 							strikerPlayer = scanner.nextInt();
 							if (teamDetails.get(teamtoBat).get(strikerPlayer).getAvailableStatus()
@@ -181,10 +185,12 @@ public class CricketMatch {
 								System.out.println("!!! Select diffrent player !!!");
 								System.out.println();
 							}
-//							}
-//							else {
-//								break;
-//							}
+							}
+							else {
+								System.out.println();
+								System.out.println("\t\t\t ALL OUT");
+								break;
+							}
 						}
 
 					}
@@ -195,7 +201,7 @@ public class CricketMatch {
 
 				if (balls + 1 < mathOvers * 6) {
 					System.out.println();
-					System.out.println((balls + 1 / 2) + " Over Finised");
+					System.out.println(((balls + 1) / 6) + " Over Finised");
 					System.out.println();
 
 					System.out.println("!!! AVAILABLE PLAYERS TO BOWL !!!");
@@ -231,7 +237,8 @@ public class CricketMatch {
 
 		if (count < 1) {
 			count++;
-			 System.out.println("count "+count);
+			 //System.out.println("count "+count);
+			arrayList.clear();
 			
 			this.cricketMatch(teamtoBowl, teamtoBat, mathOvers); // recursive call to team shift
 		} else {

@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+
+#heading_aTag,#heading_uTag{
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+   	padding-top: 20px;
+    padding-left: 100px;
+    position: absolute;
+  
+
+}
+
+#userSigindiv,#adminSigindiv{
+    width: 400px;
+    height: 250px;
+    border: solid 1px;
+    background-color: ivory;
+    margin-top: 15%;
+    margin-left: 10%;
+    display: inline-block;
+}
+
+#AdminUserdiv{
+    width: 400px;
+    height: 250px;
+    border: solid 1px;
+    background-color: ivory;
+    margin-top: 15%;
+    margin-left: 30%;
+    display: inline-block;
+}
+
+#form1,#form2{
+    margin-top: 18%;
+    margin-left: 10%;
+}
+
+#button_submit1,#button_submit2{
+    margin-top: 20px;
+    margin-left: 30%;
+    font-size: 20px;
+}
+
+
+label{
+    font-size: 20px;
+}
+input{
+    size: 20px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+
+table{
+    width: 100%;
+}

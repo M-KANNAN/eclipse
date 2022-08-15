@@ -14,20 +14,7 @@ public class EligibleChecker {
 		System.out.println("Enter the name of the person to check :");
 		name = scanner.nextLine();
 		if(FamilyMap.map.get(name) != null) {
-			
-//			Iterator<String> iterator=FamilyMap.map.keySet().iterator();
-//			
-//			while(iterator.hasNext()) {
-//				String nameCheck=iterator.next();
-//				if(nameCheck != null && FamilyMap.map.get(nameCheck).gender =='m') {
-//					this.checkingFunctionMale(nameCheck);
-//					break;
-//				}
-//				else if(nameCheck != null && FamilyMap.map.get(nameCheck).gender =='f') {
-//					this.checkingFunctionFemale(nameCheck);
-//					break;
-//				}
-//			 }
+		
 			
 			if(name != null && FamilyMap.map.get(name).gender =='m') {
 				this.checkingFunctionMale(name);
@@ -73,11 +60,11 @@ public class EligibleChecker {
 		Iterator<String> iterator=FamilyMap.map.keySet().iterator();
 		while(iterator.hasNext()) {
 			if(iterator.next().equals(fathersName)) {
-				new Fatherrelation().fatherRelation(fathersName);
+				new MaleFatherrelation().fatherRelation(fathersName);
 				break;
 			}
 			else if(iterator.next().equals(mothersName)) {
-				new Motherrelation().motherRelation(mothersName);
+				new MaleMotherrelation().motherRelation(mothersName);
 				break;
 			}
 		}
