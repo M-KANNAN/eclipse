@@ -50,16 +50,19 @@ public class GetAssignedSupportTickets extends HttpServlet {
 						TicketDetails details = entry.getValue();
 
 						out.print("<tr id=" + entry.getKey() + " value=" + entry.getKey() + " style='cursor: pointer;"
-								+ "text-align: center;' onclick='getIdFunction(this.id)'><td>" + entry.getKey()
+								+ "text-align: center;'><td>" + entry.getKey()
 								+ "</td><td>" + userdetails.getAdminName(details.getAdminName()) + "</td><td>"
 								+ details.getSubject() + "</td><td>" + details.getDiscription() + "</td><td>"
 								+ details.getTicket_Status() + "</td><td>" + details.getTimeOfCreation()
 								+ "</td><td> <button onclick='AdminUpdateFunction(" + entry.getKey()
 								+ ")'>Change Admin</button><td> <button onclick='ticketCloseFunction(" + entry.getKey()
-								+ ")'>Close Ticket</button>");
+								+ ")'>Close Ticket</button><td><button onclick='getIdFunction(" + entry.getKey()
+								+ "	)'>Chat</button></td>");
 
 					}
 					out.print("</table>");
+					
+					out.println("");
 
 				} else {
 					out.println("<script>alert('No Tickets Available')</script>");

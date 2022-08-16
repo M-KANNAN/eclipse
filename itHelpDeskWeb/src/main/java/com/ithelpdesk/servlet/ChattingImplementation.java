@@ -42,10 +42,11 @@ public class ChattingImplementation extends HttpServlet {
 			try {
 				if(new ChatDetailsForTicket().chatAvailableChecker(ticketId)) {
 					
-					out.println("<script>   var text = \"For chat press OK!\";\n"
-							+ "			if (confirm(text) == true) {\n"
+					out.println("<script>   "
+							//+ "var text = \"For chat press OK!\";\n"
+							//+ "			if (confirm(text) == true) {\n"
 							+ "                ticketChatFunction("+ticketId+");\n"
-							+ "			}\n"
+							//+ "			}\n"
 							+ "			 </script>");
 					
 				}

@@ -6,7 +6,6 @@ import java.sql.SQLException;
 public class UserTicketUpdater {
 
 
-
 	public void userTicketUpdater(String subject, String discription, int ticketNo) throws SQLException {
 		
 		

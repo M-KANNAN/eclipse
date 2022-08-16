@@ -6,7 +6,10 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
+		<item key="selection" value="getIdFunction"/>
 		<list key="findhistory">
+			<item value="getIdFunction"/>
+			<item value="ticketChatFunction"/>
 		</list>
 		<list key="replacehistory">
 		</list>

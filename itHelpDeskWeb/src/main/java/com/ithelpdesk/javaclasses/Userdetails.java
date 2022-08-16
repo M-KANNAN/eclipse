@@ -25,12 +25,12 @@ public class Userdetails {
 
 			getUserTicketsQuery = "select td.tickect_id  as ticket_Id, ud.user_name as admin_name, td.subject , td.discription,sd.status,td.time_creation\n"
 					+ "from ticket_details as td\n" + "LEFT join user_details as ud on ud.user_id = td.admin_id\n"
-					+ "LEFT join status_details as sd on sd.status_id = td.status_id\n" + "where  td.user_id= ?;";
+					+ "LEFT join status_details as sd on sd.status_id = td.status_id\n" + "where  td.user_id= ? ;"; // get user tixkets
 		}
 
 		PreparedStatement preparedStatement = validatorClass.getPreparedStatement(getUserTicketsQuery);
 		
-		System.out.println(userId);
+		//	System.out.println(userId);
 
 		try {
 			preparedStatement.setInt(1, userId);
@@ -137,6 +137,7 @@ public class Userdetails {
 		
 		preparedStatement.executeUpdate();
 		
+		preparedStatement.close();
 		
 	}
 
@@ -158,6 +159,30 @@ public class Userdetails {
 		}
 
 		return ticket;
+		
+		
+		
+	}
+
+	public void updateAdminId(int ticketNo, int adminId) throws SQLException {
+		
+
+		ValidatorClass validatorClass = new ValidatorClass();
+		
+
+		String closeSupportRequestQuery = "update ticket_details\n"
+				+ "set admin_id =  ?\n"
+				+ "where tickect_id = ?; ";
+
+		PreparedStatement preparedStatement = validatorClass.getPreparedStatement(closeSupportRequestQuery);
+
+		preparedStatement.setInt(1, adminId);
+		
+		preparedStatement.setInt(2, ticketNo);
+		
+		preparedStatement.executeUpdate();
+		
+		preparedStatement.close();
 		
 		
 		

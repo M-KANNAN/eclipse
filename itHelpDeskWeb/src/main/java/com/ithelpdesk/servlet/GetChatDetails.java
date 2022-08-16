@@ -45,9 +45,10 @@ public class GetChatDetails extends HttpServlet {
 			
 
 			try {
-				HashMap<Integer, ArrayList<ChatPojo>> chatdetails =new ChatDetailsForTicket().chatDetailsForTicket(userId);
+	
+				HashMap<Integer, ArrayList<ChatPojo>> chatdetails =new ChatDetailsForTicket().chatDetailsForTicket(userId,ticketId);
 				
-				out.print("<table border='1' width='100%' color = 'snow'");
+				out.print("<table border='1' width='100%' color = 'snow' ");
 				out.print(
 						"<tr ><br><th>Sender</th><th>Reciver</th><th>Message</th></tr>");
 				out.println("<tr colspan='3'>  <label for=\"message_sender\">Type a reply here</label>\n"
@@ -58,17 +59,20 @@ public class GetChatDetails extends HttpServlet {
 
 				
 				for(Entry<Integer, ArrayList<ChatPojo>> entry : chatdetails.entrySet()) {
+					System.out.println("Key : "+ entry.getKey());
+					//System.out.println("Id : "+ticketId);
 					if(ticketId == entry.getKey()) {
 						
 						for(ChatPojo chatPojo : entry.getValue()) {
-							
-							
-							out.print("<tr> <td>" + chatPojo.getSenderName()+ "</td><td>"
-									+chatPojo.getReciverName()+ "</td><td>" + chatPojo.getTextMessage() + "</td>");
+							out.print("<tr style = 'text-align : 'center' ';> <td>" + chatPojo.getSenderName()+ "</td><td>"
+							+chatPojo.getReciverName()+ "</td><td>" + chatPojo.getTextMessage() + "</td>");
+	
+							System.out.println(chatPojo.getTextMessage());
 						}
 						
 					}
 				}
+				out.println("</table>");
 				
 			} catch (SQLException e) {
 			
@@ -77,9 +81,8 @@ public class GetChatDetails extends HttpServlet {
 			
 		}
 		else{
-			out.println("<script>alert('hai')</script>");
+			out.println("<script>alert('No UserId and TicketId')</script>");
 		}
-		
 		
 	}
 

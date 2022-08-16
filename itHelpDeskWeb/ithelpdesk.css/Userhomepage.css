@@ -139,7 +139,7 @@ input{
     font-size: 20px;
 }
 
-#user_Tickets,#ticket_Updator{
+#user_Tickets,#ticket_Updator,#ticket_Updator_form,#UserTickets_for_chat,#chat_details,#pick_UserRequest,#My_assigned_Tickts{
 	display: none;
 }
 

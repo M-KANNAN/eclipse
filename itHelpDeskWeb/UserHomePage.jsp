@@ -84,17 +84,30 @@
 
 
 			<div id="user_Tickets"></div>
+			
+			<br>
 
 			<div id="ticket_Updator">
+			
+			<br>
 
 				<div id="ticket_Updator_form"></div>
+				
+				<br>
 
 			</div>
+			<br>
+			
 			
 			<!-- chat -->
 			<div id="UserTickets_for_chat"></div>
 			
+			<br>
+			
 			<div id="chat_details"></div>
+			
+			<br>
+
 
 		</div>
 

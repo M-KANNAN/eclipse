@@ -83,7 +83,7 @@ public class UserMessager {
 		
 	}
 
-	private int getAdminId(int ticketId) throws SQLException {
+	protected int getAdminId(int ticketId) throws SQLException {
 		
 		ValidatorClass validatorClass = new ValidatorClass();
 
@@ -100,7 +100,7 @@ public class UserMessager {
 		return resultSet.getInt(1);
 	}
 
-	private int getUserId(int ticketId) throws SQLException {
+	protected int getUserId(int ticketId) throws SQLException {
 		
 		ValidatorClass validatorClass = new ValidatorClass();
 

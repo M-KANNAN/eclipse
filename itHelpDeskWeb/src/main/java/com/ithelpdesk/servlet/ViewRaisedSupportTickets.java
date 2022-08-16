@@ -15,9 +15,7 @@ import javax.servlet.http.HttpSession;
 import com.ithelpdesk.javaclasses.TicketDetails;
 import com.ithelpdesk.javaclasses.Userdetails;
 
-/**
- * Servlet implementation class ViewRaisedSupportTickets
- */
+
 @WebServlet("/ViewRaisedSupportTickets")
 public class ViewRaisedSupportTickets extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -32,12 +30,12 @@ public class ViewRaisedSupportTickets extends HttpServlet {
 		if (httpSession.getAttribute("UserId") != null) {
 			int userId = Integer.parseInt(httpSession.getAttribute("UserId").toString());
 
-			HashMap<Integer, TicketDetails> userTickets = userdetails.getUserTickets(userId,false);
+			HashMap<Integer, TicketDetails> userTickets = userdetails.getUserTickets(userId, false);
 
 			PrintWriter out = response.getWriter();
-			
-			if(userTickets.size() > 1) {
-				
+
+			if (userTickets.size() > 1) {
+
 				out.print("<table border='1' width='100%' color = 'snow'");
 				out.print(
 						"<tr ><th>Ticket No</th><th>Admin Name</th><th>Subject</th><th>Discription</th><th>Status</th><th>Time of Creation</th>");
@@ -48,20 +46,24 @@ public class ViewRaisedSupportTickets extends HttpServlet {
 					TicketDetails details = entry.getValue();
 
 					out.print("<tr id=" + entry.getKey() + " value=" + entry.getKey() + " style='cursor: pointer;"
-							+ "text-align: center;' onclick='getIdFunction(this.id)'><td>" + entry.getKey() + "</td><td>"
-							+userdetails.getAdminName(details.getAdminName()) + "</td><td>" + details.getSubject() + "</td><td>"
-							+ details.getDiscription() + "</td><td>" + details.getTicket_Status() + "</td><td>"
-							+ details.getTimeOfCreation() + "</td>");
+							+ "text-align: center;'><td>" + entry.getKey() + "</td><td>"
+							+ userdetails.getAdminName(details.getAdminName()) + "</td><td>" + details.getSubject()
+							+ "</td><td>" + details.getDiscription() + "</td><td>" + details.getTicket_Status()
+							+ "</td><td>" + details.getTimeOfCreation()
+							+ "</td>"
+							//+ "<td> <button onclick='AdminUpdateFunction(" + entry.getKey()
+						//	+ ")'>Change Admin</button></td>"
+							+ "<td> <button onclick='ticketCloseFunction(" + entry.getKey()
+							+ ")'>Close Ticket</button></td>"
+							+ "<td><button onclick='getIdFunction(" + entry.getKey()+ ")'>Chat</button></td>");
 
 				}
 				out.print("</table>");
-				
-			}
-			else {
+
+			} else {
 				out.println("<script>alert('No Tickets Available')</script>");
 			}
 
-		
 		}
 
 	}

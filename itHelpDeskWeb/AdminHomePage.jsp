@@ -89,25 +89,33 @@
 
 
 			<div id="user_Tickets"></div>
+			
+			
 
 			<div id="ticket_Updator">
+			<br>
 
 				<div id="ticket_Updator_form"></div>
+				<br>
 
 			</div>
 			
 			<!-- chat -->
 			<div id="UserTickets_for_chat"></div>
+			<br>
 			
 			<div id="chat_details"></div>
+			<br>
 			
 			<!-- Pick User Request -->
 			
 			<div id="pick_UserRequest"></div>
+			<br>
 			
 			<!-- Show Admin Assigned Tickets  -->
 			
 			<div id="My_assigned_Tickts"></div>
+			<br>
 
 		</div>
 
@@ -187,9 +195,10 @@
 		});
 
 		
-		//chat implementation
+		//chat implementation 1
 		function getIdFunction(ticketNo) {
-			alert("Ticket Number : "+ticketNo);
+			
+			//alert("Ticket Number : "+ticketNo);
 			
 			var object = {
 					type : 'POST',
@@ -207,10 +216,7 @@
 				$.ajax(object).done(function(response) {
 					$('#chat_details').html(response);
 				});
-			
-			
-			
-			
+
 			
 		}
 		
@@ -350,6 +356,7 @@
 
 		});
 		
+		//chat implemetation 2
 		
 		function ticketChatFunction(ticketNo){
 			
@@ -380,6 +387,7 @@
 			}
 
 		}
+		
 		
 		function messageFunction(){
 			
@@ -417,13 +425,18 @@
 		}
 		
 		
-		//pick a user Request
 		
-
+		//pick a user Request
 		
 		$(document).ready(function() {
 
 			$('#PickRequest').click(function() {
+				
+				var divElement = document.getElementById("pick_UserRequest");
+				
+				if (divElement.style.display === 'none') {
+
+					divElement.style.display = 'block';
 			
 				$('#pick_UserRequest').show()
 					var object = {
@@ -438,6 +451,10 @@
 						$('#pick_UserRequest').html(response);
 						
 					});
+					
+				} else {
+					divElement.style.display = 'none';
+				}
 
 			});
 
@@ -470,9 +487,7 @@
 				
 
 			}
-			else{
-				alert("cancel");
-			}
+			
 		}
 		
 		
@@ -481,7 +496,14 @@
 		$(document).ready(function() {
 
 			$('#MyRequest').click(function() {
-			
+				
+			var divElement = document.getElementById("My_assigned_Tickts");
+				
+				if (divElement.style.display === 'block') {
+
+					divElement.style.display = 'none';
+				
+				
 				$('#pick_UserRequest').show()
 					var object = {
 						type : 'GET',
@@ -495,6 +517,12 @@
 						$('#My_assigned_Tickts').html(response);
 						
 					});
+					
+				}
+				else{
+					divElement.style.display = 'block';
+					
+				}
 
 			});
 
@@ -524,24 +552,54 @@
 		
 		function AdminUpdateFunction(ticketId){
 			
+			alert(ticketId);
+			
 			var object = {
 					type : 'POST',
 					url : 'GetAdminUsers',
 					data : {
 						ticketId : ticketId
-					},
+					}, 
 					error : function() {
 						window.location = "AdminHomePage.jsp";
 					}
 				};
 
 				$.ajax(object).done(function(response) {
+					$('#'+ticketId).remove();
 					$('#My_assigned_Tickts').html(response);
 					
 				});
 			
 		}
 		
+		function selectAdmin(){
+			
+			var adminId= document.getElementById("available_Admin").value;  
+			
+			if(confirm(text)){
+				
+				var object = {
+						type : 'POST',
+						url : 'UpdateAdminId',
+						data : {
+							adminId : adminId
+						},
+						error : function() {
+							window.location = "AdminHomePage.jsp";
+						}
+					};
+
+					$.ajax(object).done(function(response) {;
+						alert("Ticket "+ticketId+" Admin is Changed ");
+						
+						$('#pick_UserRequest').hide();
+					});
+			
+			}
+
+		}
+
 
 	</script>
 

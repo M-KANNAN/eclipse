@@ -11,18 +11,41 @@ public class ChatDetailsForTicket {
 	
 	
 
-	public HashMap<Integer, ArrayList<ChatPojo>> chatDetailsForTicket(int userId) throws SQLException {
+	public HashMap<Integer, ArrayList<ChatPojo>> chatDetailsForTicket(int userId, int ticketId) throws SQLException {
 		
 		
 		ValidatorClass validatorClass=new ValidatorClass();
 		
-		String getChatQuery="select cd.ticket_id,cd.chat_message,ud.user_name as sender_Name, ud_U.user_name as reciver_Name\n"
-				+ "from chat_details as cd\n"
-				+ "LEFT join user_details as ud on ud.user_id = cd.sender_id\n"
-				+ "left join user_details as ud_U on ud_U.user_id = cd.reciver_id\n"
-				+ "where ticket_id in\n"
-				+ "(select tickect_id from ticket_details where USER_id =?) order by cd.timeof_creation DESC;";
-
+		String getChatQuery;
+		
+		UserMessager messager=new UserMessager();
+		
+		int ticketUserId=messager.getUserId(ticketId);
+		
+		int ticketAdminId=messager.getAdminId(ticketId);
+		
+		
+		if(ticketUserId == userId) {
+			
+			getChatQuery="select cd.ticket_id,cd.chat_message,ud.user_name as sender_Name, ud_U.user_name as reciver_Name\n"
+					+ "from chat_details as cd\n"
+					+ "LEFT join user_details as ud on ud.user_id = cd.sender_id\n"
+					+ "left join user_details as ud_U on ud_U.user_id = cd.reciver_id\n"
+					+ "where ticket_id in\n"
+					+ "(select tickect_id from ticket_details where USER_id =?) order by cd.timeof_creation DESC;";
+			
+		}
+		else {
+			getChatQuery="select cd.ticket_id,cd.chat_message,ud.user_name as sender_Name, ud_U.user_name as reciver_Name\n"
+					+ "from chat_details as cd\n"
+					+ "LEFT join user_details as ud on ud.user_id = cd.sender_id\n"
+					+ "left join user_details as ud_U on ud_U.user_id = cd.reciver_id\n"
+					+ "where ticket_id in\n"
+					+ "(select tickect_id from ticket_details where ADMIN_id =?) order by cd.timeof_creation DESC;";
+			
+		}
+			
+		
 		PreparedStatement preparedStatement=validatorClass.getPreparedStatement(getChatQuery);
 		
 		preparedStatement.setInt(1, userId);

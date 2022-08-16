@@ -21,8 +21,9 @@ public class GetAdminUsers extends HttpServlet {
 	protected static int ticketNo;
 	private static final long serialVersionUID = 1L;
   
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		PrintWriter out = response.getWriter();
 
 		Userdetails userdetails = new Userdetails();
@@ -30,8 +31,9 @@ public class GetAdminUsers extends HttpServlet {
 		HttpSession httpSession = request.getSession();
 
 		if (httpSession.getAttribute("UserId") != null) {
-			int userId = Integer.parseInt(httpSession.getAttribute("UserId").toString());
 			
+			int userId = Integer.parseInt(httpSession.getAttribute("UserId").toString());
+
 			ticketNo=Integer.parseInt(request.getParameter("ticketId"));
 
 			try {
@@ -41,8 +43,7 @@ public class GetAdminUsers extends HttpServlet {
 
 				out.println("<label for='admin_Details'>Choose a Admin :</label>");
 
-				out.println(
-						"<select name='admin_Details' id='available_Admin' style=width:' 60px;' >");
+				out.println("<select name='admin_Details' id='available_Admin' style=width:' 60px;' >");
 
 				for (Integer integer : ticketList) {
 
@@ -50,8 +51,8 @@ public class GetAdminUsers extends HttpServlet {
 
 				}
 				out.println("</select>");
-				
-				out.println("<button onclick('selectAdmin()')>Register</button>");
+
+				out.println("<button onclick='selectAdmin()'>Register</button>");
 
 			} catch (SQLException e) {
 
@@ -59,9 +60,11 @@ public class GetAdminUsers extends HttpServlet {
 			}
 
 		}
-		
-		
-		
+
 	}
+	
+	
+		
+	
 
 }

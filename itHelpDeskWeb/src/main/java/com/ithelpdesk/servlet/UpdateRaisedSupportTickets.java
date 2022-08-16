@@ -23,18 +23,24 @@ public class UpdateRaisedSupportTickets extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		ticketNo=Integer.parseInt(request.getParameter("value")) ;
-		
+
 		Userdetails userdetails = new Userdetails();
 
 		HttpSession httpSession = request.getSession();
 
-		if (httpSession.getAttribute("UserId") != null) {
+		if (httpSession.getAttribute("UserId") != null && request.getParameter("value") != null) {
+			
+			ticketNo=Integer.parseInt(request.getParameter("value")) ;
 			
 			int userId = Integer.parseInt(httpSession.getAttribute("UserId").toString());
 			
 			HashMap<Integer, TicketDetails> userTickets = userdetails.getUserTickets(userId,false);
+			
+//			for(Entry<Integer, TicketDetails> entry : userTickets.entrySet()) {
+//				System.out.println(entry.getKey());
+//				System.out.println(entry.getValue().getSubject());
+//				System.out.println(entry.getValue().getDiscription());
+//			}
 			
 			PrintWriter out=response.getWriter();
 			String subject=userTickets.get(ticketNo).getSubject();
@@ -46,19 +52,19 @@ public class UpdateRaisedSupportTickets extends HttpServlet {
 			out.println("<div id=\"ticket_Updater_outer_box\">\n"
 					+ "						<DIV id=\"ticket_Updator_Heading\">Ticket Updater</DIV>\n"
 					+ "						<table id=\"ticketUpdaterForm\">\n"
-					+ "							<form action=\"UpdateRaisedSupportTickets\" method=\"post\">\n"
+					+ "							<form>\n"
 					+ "\n"
 					+ "								<tr>\n"
-					+ "									<td><label for=\"subject\">Subject : </label></td>\n"
+					+ "									<td><label for=\"updatesubject\">Subject : </label></td>\n"
 					+ "									<td><input type=\"text\" id=\"updatesubject\" name=\"subject\"\n"
 					+ "										value='" +subject+ "' required=\"required\" /></td>\n"
 					+ "								</tr>\n"
 					+ "\n"
 					+ "								<tr>\n"
-					+ "									<td><label for=\"discription\"> Discription : </label></td>\n"
+					+ "									<td><label for=\"updatediscription\"> Discription : </label></td>\n"
 					+ "									<td><textarea type=\"text\" id=\"updatediscription\"\n"
-					+ "											name=\"discription\"\n"
-					+ "											required=\"required\"></textarea></td>\n"
+					+ "									name=\"discription\"\n"
+					+ "									required=\"required\"></textarea></td>\n"
 					+ "								</tr>\n"
 					+ "\n"
 					+ "\n"
@@ -74,7 +80,10 @@ public class UpdateRaisedSupportTickets extends HttpServlet {
 					+ "					</div>");
 			
 	
-			out.println("<script>  $(document).ready(function() {\n"
+			out.println("<script>  "
+					+ "document.getElementById('updatediscription').value='"+discription+"' ;"
+					
+					+ " $(document).ready(function() {\n"
 					+ "\n"
 					+ "			$('#button_Update').click(function() {\n"
 					+ "\n"

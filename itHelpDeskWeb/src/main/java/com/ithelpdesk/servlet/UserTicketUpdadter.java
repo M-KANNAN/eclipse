@@ -44,27 +44,8 @@ public class UserTicketUpdadter extends HttpServlet {
 
 					e.printStackTrace();
 				}
-				
-//				out.println("<script type=\"text/javascript\">");
-//				out.println("alert('!!! Updated Sucessfully !!!');");
-//				//out.println("location='UserHomePage.jsp';");
-//				out.println("</script>");
 			}
-			else {
-//				out.println("<script type=\"text/javascript\">");
-//				out.println("alert('!!! Subject and Discription is not in proper format !!!');");
-//				//out.println("location='UserHomePage.jsp';");
-//				out.println("</script>");
-			}
-
 		}
-		else {
-//			out.println("<script type=\"text/javascript\">");
-//			out.println("alert('!!! Subject and Discription will not be empty !!!');");
-//			//out.println("location='UserHomePage.jsp';");
-//			out.println("</script>");
-		}
-
 	}
 
 }

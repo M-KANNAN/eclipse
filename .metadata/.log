@@ -10548,3 +10548,237 @@ Binding(ALT+COMMAND+R,
 
 !ENTRY org.eclipse.jst.server.tomcat.core 1 0 2022-08-15 09:12:13.452
 !MESSAGE Skipping argument '-Djava.endorsed.dirs=/Users/m.kannan/MINE/apache-tomcat-7.0.107/endorsed' while launching Tomcat v7.0 Server at localhost
+!SESSION 2022-08-15 15:33:01.427 -----------------------------------------------
+eclipse.buildId=4.23.0.I20220308-0310
+java.version=16.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/m.kannan/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.java.product -keyring /Users/m.kannan/.eclipse_keyring
+
+!ENTRY org.eclipse.jface 2 0 2022-08-15 15:37:30.030
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2022-08-15 15:37:30.030
+!MESSAGE A conflict occurred for COMMAND+SHIFT+T:
+Binding(COMMAND+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1b96d447,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(COMMAND+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4a68cbc5,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2022-08-15 15:37:30.030
+!MESSAGE A conflict occurred for ALT+COMMAND+R:
+Binding(ALT+COMMAND+R,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.rename,Rename,
+		Rename the selected item,
+		Category(org.eclipse.ui.category.file,File,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3a47bf0e,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,cocoa,system)
+Binding(ALT+COMMAND+R,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.jdt.ui.category.refactoring,Refactor - Java,Java Refactoring Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4270705f,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,cocoa,system)
+!SESSION 2022-08-15 15:39:28.942 -----------------------------------------------
+eclipse.buildId=4.23.0.I20220308-0310
+java.version=16.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/m.kannan/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.java.product -keyring /Users/m.kannan/.eclipse_keyring
+
+!ENTRY org.eclipse.jface 2 0 2022-08-15 15:39:37.661
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2022-08-15 15:39:37.661
+!MESSAGE A conflict occurred for COMMAND+SHIFT+T:
+Binding(COMMAND+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1b96d447,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(COMMAND+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4a68cbc5,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2022-08-15 15:39:37.661
+!MESSAGE A conflict occurred for ALT+COMMAND+R:
+Binding(ALT+COMMAND+R,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.rename,Rename,
+		Rename the selected item,
+		Category(org.eclipse.ui.category.file,File,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3a47bf0e,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,cocoa,system)
+Binding(ALT+COMMAND+R,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.jdt.ui.category.refactoring,Refactor - Java,Java Refactoring Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4270705f,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,cocoa,system)
+
+!ENTRY org.eclipse.jst.server.tomcat.core 1 0 2022-08-15 19:33:31.907
+!MESSAGE Skipping argument '-Djava.endorsed.dirs=/Users/m.kannan/MINE/apache-tomcat-7.0.107/endorsed' while launching Tomcat v7.0 Server at localhost
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2022-08-15 19:35:00.802
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/releases/mars, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2022-08-15 19:35:04.093
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/technology/epp/packages/mars/content.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2022-08-15 19:35:07.829
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/releases/mars/201506241002/content.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2022-08-15 19:35:11.283
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/releases/mars/201510021000/content.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2022-08-15 19:35:14.519
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/releases/mars/201602261000/content.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2022-08-15 19:35:20.546
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/egit/updates/content.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2022-08-15 19:35:23.937
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/releases/luna/, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2022-08-15 19:35:25.994
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/releases/luna/201406250900, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2022-08-15 19:35:28.642
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/releases/luna/201409261001, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2022-08-15 19:35:31.277
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/releases/luna/201501121000, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2022-08-15 19:35:33.931
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/releases/luna/201502271000, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2022-08-15 19:35:36.519
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/technology/epp/packages/luna/, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2022-08-15 19:35:56.298
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/oomph/updates/milestone/latest, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2022-08-15 19:35:58.366
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/oomph/drops/milestone/S20220803-064612-1.26.0-M2/content.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.jst.server.tomcat.core 1 0 2022-08-15 22:32:34.511
+!MESSAGE Skipping argument '-Djava.endorsed.dirs=/Users/m.kannan/MINE/apache-tomcat-7.0.107/endorsed' while launching Tomcat v7.0 Server at localhost
+
+!ENTRY org.eclipse.jst.server.tomcat.core 1 0 2022-08-16 00:46:42.166
+!MESSAGE Skipping argument '-Djava.endorsed.dirs=/Users/m.kannan/MINE/apache-tomcat-7.0.107/endorsed' while launching Tomcat v7.0 Server at localhost
+!SESSION 2022-08-16 09:34:22.284 -----------------------------------------------
+eclipse.buildId=4.23.0.I20220308-0310
+java.version=16.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/m.kannan/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.java.product -keyring /Users/m.kannan/.eclipse_keyring
+
+!ENTRY org.eclipse.jface 2 0 2022-08-16 09:34:33.340
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2022-08-16 09:34:33.340
+!MESSAGE A conflict occurred for COMMAND+SHIFT+T:
+Binding(COMMAND+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1b96d447,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(COMMAND+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4a68cbc5,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2022-08-16 09:34:33.340
+!MESSAGE A conflict occurred for ALT+COMMAND+R:
+Binding(ALT+COMMAND+R,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.rename,Rename,
+		Rename the selected item,
+		Category(org.eclipse.ui.category.file,File,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3a47bf0e,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,cocoa,system)
+Binding(ALT+COMMAND+R,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.jdt.ui.category.refactoring,Refactor - Java,Java Refactoring Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4270705f,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,cocoa,system)
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2022-08-16 09:44:27.560
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/releases/mars, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2022-08-16 09:44:29.690
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/technology/epp/packages/mars/content.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2022-08-16 09:44:33.312
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/releases/mars/201506241002/content.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2022-08-16 09:44:36.578
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/releases/mars/201510021000/content.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2022-08-16 09:44:39.596
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/releases/mars/201602261000/content.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2022-08-16 09:44:44.157
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/egit/updates/content.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2022-08-16 09:44:46.327
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/releases/luna/, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2022-08-16 09:44:50.667
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/releases/luna/201406250900, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2022-08-16 09:44:53.292
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/releases/luna/201409261001, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2022-08-16 09:44:55.916
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/releases/luna/201501121000, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2022-08-16 09:44:58.393
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/releases/luna/201502271000, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2022-08-16 09:59:04.830
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/technology/epp/packages/luna/, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2022-08-16 09:59:24.357
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/oomph/updates/milestone/latest, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2022-08-16 09:59:27.042
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/oomph/drops/milestone/S20220803-064612-1.26.0-M2/content.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.jst.server.tomcat.core 1 0 2022-08-16 10:14:37.017
+!MESSAGE Skipping argument '-Djava.endorsed.dirs=/Users/m.kannan/MINE/apache-tomcat-7.0.107/endorsed' while launching Tomcat v7.0 Server at localhost
