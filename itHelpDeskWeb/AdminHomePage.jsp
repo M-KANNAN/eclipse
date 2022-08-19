@@ -1,5 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page import="java.util.* , com.ithelpdesk.javaclasses.Userdetails , com.ithelpdesk.javaclasses.TicketDetails ,java.util.Map.Entry ,com.ithelpdesk.javaclasses.TrashCleaner" 
+
+
+language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+    
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +20,43 @@
 
 
 <body>
+
+
+<%
+
+new TrashCleaner().trashCleaner();
+
+
+%>
+
+
+
+
+	<%-- 
+					<!-- //Declearation tag -->
+					
+					<%
+					
+					int userId = Integer.parseInt(session.getAttribute("UserId").toString());
+					
+					
+					
+					Userdetails userdetails=new Userdetails();
+
+					HashMap<Integer, TicketDetails> userDetails = userdetails.getUserTickets(userId, true);
+				/* 	
+					for (Entry<Integer, TicketDetails> entry : userTickets.entrySet()) {
+						TicketDetails details = entry.getValue();
+						System.out.println(entry.getValue().getDiscription());
+						}  */
+		
+
+					%> --%>
+
+
+ 
+
+
 	<script type="text/javascript" src="jsQuery/jquery-3.6.0.js"></script>
 
 
@@ -24,6 +67,7 @@
 		response.sendRedirect("http://localhost:8080/itHelpDeskWeb/Userlogin.jsp"); // redirecting to the Login page
 	}
 	%>
+
 
 
 	<div>
@@ -41,10 +85,11 @@
 				<ul>
 					<li id="Ticket_Raiser"><a href="#">Raise a Ticket</a></li>
 					<li id="View_Tickets"><a href="#">View a Ticket</a></li>
-					<li id="Update_Tickets"><a href="#">Update a Ticket</a></li>
+					<!-- <li id="Update_Tickets"><a href="#">Update a Ticket</a></li> -->
 					<li id="PickRequest" onclick=""><a href="#">Pick a support Request</a></li>
 					<li id="MyRequest"><a href="#">My Assigned Tickets</a></li>
-					<li id="Chatbox"><a href="#">Customer Support</a></li>
+					<li id="ClosedTickets"><a href="#">Closed Tickets</a></li>
+					<li id="ArchiveTickets"><a href="#">Archived Tickets</a></li>
 
 				</ul>
 
@@ -88,34 +133,49 @@
 			</div>
 
 
-			<div id="user_Tickets"></div>
+			<div id="user_Tickets" style="display:none;"></div>
 			
 			
 
-			<div id="ticket_Updator">
+			<div id="ticket_Updator" style="display:none;">
 			<br>
 
-				<div id="ticket_Updator_form"></div>
+				<div id="ticket_Updator_form" style="display:none;"></div>
 				<br>
 
 			</div>
 			
 			<!-- chat -->
-			<div id="UserTickets_for_chat"></div>
+			<div id="UserTickets_for_chat" style="display:none;"></div>
 			<br>
 			
-			<div id="chat_details"></div>
+			<div id="chat_details" style="display:none;"></div>
 			<br>
 			
 			<!-- Pick User Request -->
 			
-			<div id="pick_UserRequest"></div>
+			<div id="pick_UserRequest" style="display:none;"></div>
 			<br>
 			
 			<!-- Show Admin Assigned Tickets  -->
 			
-			<div id="My_assigned_Tickts"></div>
+			<div id="My_assigned_Tickts" style="display:none;"></div>
 			<br>
+	
+			
+				<%-- <table width="100%" border="1"> <tr ><th>Ticket No</th><th>Admin Name</th><th>Subject</th><th>Discription</th><th>Status</th><th>Time of Creation</th></tr>
+				
+			 	<c:forEach items="${map}" var="entry">
+	
+					hai
+					
+				    <tr> <td> ${entry.key} </td> <td>${entry.value.getAdminName()} </td> <td> ${entry.value.getSubject()} </td><td> ${entry.value.getDiscription()} </td><td> ${entry.value.getTicket_Status()} </td><td> ${entry.value.getTimeOfCreation()} </td> </tr>
+				    
+				</c:forEach> 
+					
+				</table>
+				
+			 --%>
 
 		</div>
 
@@ -187,18 +247,19 @@
 					});
 
 				} else {
+			
 					divElement.style.display = 'none';
 				}
 
 			});
 
 		});
-
 		
-		//chat implementation 1
+
+		// chat Implementation
+		
 		function getIdFunction(ticketNo) {
 			
-			//alert("Ticket Number : "+ticketNo);
 			
 			var object = {
 					type : 'POST',
@@ -219,6 +280,72 @@
 
 			
 		}
+		
+		
+		function ticketChatFunction(ticketNo){
+			
+			var divElement = document.getElementById("chat_details");
+
+			if (divElement.style.display === 'none') {
+
+				divElement.style.display = 'block';
+				var object = {
+					type : 'POST',
+					data : {
+						ticketNo : ticketNo
+						
+					},
+					url : 'GetChatDetails',
+					error : function(error) {
+						alert(error.stack);
+						window.location = "UserHomePage.jsp";
+					}
+				};
+
+				$.ajax(object).done(function(response) {
+					$('#chat_details').html(response);
+				});
+
+			} else {
+				divElement.style.display = 'none';
+			}
+
+		}
+		
+		
+		function messageFunction(){ 
+			
+			var message=document.getElementById("message_sender").value;
+			
+			var object = {
+					type : 'POST',
+					data : {
+						
+						message : message
+					},
+					url : 'UserMessageSender',
+					error : function(error) {
+						alert(error.stack);
+						window.location = "UserHomePage.jsp";
+					}
+				};
+
+				$.ajax(object).done(function(response,xhr) {
+					
+					if(xhr.status == 203){
+						alert("Message Not sended");
+					}
+					else{
+						alert("Message Send sucessfully");
+						$('#chat_details').hide();
+					}
+					
+				});
+				
+				//ticketChatFunction(ticketNo);
+			
+		}
+		
 		
 		//update function
 
@@ -252,9 +379,8 @@
 
 		});
 
-		function ticketUpdateFunction() {
+		function ticketUpdateFunction(ticketNo) {
 
-			var value=document.getElementById("ticket_Select").value;
 
 			var text = "Sure you want to update press OK!";
 			if (confirm(text) == true) {
@@ -262,13 +388,15 @@
 				var divElement = document.getElementById("Ticket_Raiser_form");
 
 				if (divElement.style.display === 'none') {
+					
+					alert("none");
 
 					divElement.style.display = 'block';
 					var object = {
 						type : 'GET',
 						url : 'UpdateRaisedSupportTickets',
 						data : {
-							value : value
+							ticketNo : ticketNo
 						},
 						error : function(error) {
 							alert(error.stack);
@@ -282,6 +410,7 @@
 					});
 
 				} else {
+					alert("block");
 					divElement.style.display = 'none';
 				}
 
@@ -300,8 +429,10 @@
 		}
 
 		// update function
+		
+		// UpdateRaisedSupportTickets
 
-		$(document).ready(function() {
+	/* 	$(document).ready(function() {
 
 			$('#button_Update').click(function() {
 
@@ -330,99 +461,7 @@
 
 				});
 
-		});
-
-		//chat function
-			
-		$(document).ready(function() {
-
-			$('#Chatbox').click(function() {
-
-				var divElement = document.getElementById("user_Tickets");
-
-					var object = {
-						type : 'GET',
-						url : 'UserTickets_for_chat',
-						error : function() {
-							window.location = "Userlogin.jsp";
-						}
-					};
-
-					$.ajax(object).done(function(response) {
-						$('#UserTickets_for_chat').html(response);
-					});
-
-			});
-
-		});
-		
-		//chat implemetation 2
-		
-		function ticketChatFunction(ticketNo){
-			
-			var divElement = document.getElementById("chat_details");
-
-			if (divElement.style.display === 'none') {
-
-				divElement.style.display = 'block';
-				var object = {
-					type : 'POST',
-					data : {
-						ticketNo : ticketNo
-						
-					},
-					url : 'GetChatDetails',
-					error : function(error) {
-						alert(error.stack);
-						window.location = "UserHomePage.jsp";
-					}
-				};
-
-				$.ajax(object).done(function(response) {
-					$('#chat_details').html(response);
-				});
-
-			} else {
-				divElement.style.display = 'none';
-			}
-
-		}
-		
-		
-		function messageFunction(){
-			
-		//	var ticketNo= document.getElementById("ticket_Chat").value;  
-			
-			var message=document.getElementById("message_sender").value;
-			
-			var object = {
-					type : 'POST',
-					data : {
-						//ticketNo : ticketNo,
-						message : message
-					},
-					url : 'UserMessageSender',
-					error : function(error) {
-						alert(error.stack);
-						window.location = "UserHomePage.jsp";
-					}
-				};
-
-				$.ajax(object).done(function(response,xhr) {
-					
-					if(xhr.status == 203){
-						alert("Message Not sended");
-					}
-					else{
-						alert("Message Send sucessfully");
-						$('#chat_details').hide();
-					}
-					
-				});
-				
-				//ticketChatFunction(ticketNo);
-			
-		}
+		}); */
 		
 		
 		
@@ -494,17 +533,20 @@
 		// My assigned Tickets
 		
 		$(document).ready(function() {
+			
 
 			$('#MyRequest').click(function() {
 				
-			var divElement = document.getElementById("My_assigned_Tickts");
+			var divElement = document.getElementById("user_Tickets");
+			
+			
 				
 				if (divElement.style.display === 'block') {
 
 					divElement.style.display = 'none';
 				
 				
-				$('#pick_UserRequest').show()
+				/* $('#pick_UserRequest').show() */
 					var object = {
 						type : 'GET',
 						url : 'GetAssignedSupportTickets',
@@ -514,15 +556,16 @@
 					};
 
 					$.ajax(object).done(function(response) {
-						$('#My_assigned_Tickts').html(response);
+						$('#user_Tickets').html(response);
 						
 					});
 					
 				}
 				else{
 					divElement.style.display = 'block';
+					/* $('#pick_UserRequest').show(); */
 					
-				}
+				} 
 
 			});
 
@@ -551,8 +594,6 @@
 		
 		
 		function AdminUpdateFunction(ticketId){
-			
-			alert(ticketId);
 			
 			var object = {
 					type : 'POST',
@@ -599,7 +640,187 @@
 			}
 
 		}
+		
+		
+		//closed to archive  function
+		
+		$(document).ready(function() {
 
+			$('#ClosedTickets').click(function() {
+				
+				var divElement = document.getElementById("user_Tickets");
+
+				if (divElement.style.display === 'none') {
+
+					divElement.style.display = 'block';
+
+					var object = {
+						type : 'GET',
+						url : 'GetClosedTickets',
+						error : function() {
+							window.location = "Userlogin.jsp";
+						}
+					};
+
+					$.ajax(object).done(function(response) {
+						$('#user_Tickets').html(response);
+					});
+					
+					
+				}else{
+					divElement.style.display = 'none';
+				}
+
+
+			});
+
+		}); 
+		
+		function ticketArchiveFunction(ticketId){
+			
+			var object = {
+					type : 'POST',
+					url : 'GetClosedTickets',
+					data : {
+						ticketId: ticketId
+					}, 
+					error : function() {
+						window.location = "AdminHomePage.jsp";
+					}
+				};
+
+				$.ajax(object).done(function(response) {
+					$('#'+ticketId).remove();
+					
+				});
+			
+		}
+		
+		
+		
+		//JSP integeration
+		
+
+		
+		<%-- $(document).ready(function() {
+
+			$('#ArchiveTickets').click(function() {
+				
+			
+				var divElement = document.getElementById("UserTickets_for_chat");
+
+				if (divElement.style.display === 'none') {
+					
+						
+				<%
+				
+				
+			
+				/* for (Entry<Integer, TicketDetails> entry : userDetails.entrySet()) {
+					
+					TicketDetails details = entry.getValue();
+					
+					out.println("'<table width='100% border='1'> <tr ><th>Ticket No</th><th>Admin Name</th><th>Subject</th><th>Discription</th><th>Status</th><th>Time of Creation</th></tr>'");
+					
+					if(!"Archive".equals(details.getTicket_Status())){
+						out.println("<tr> <td>'+ key +'</td> <td>'"+ entry.value.getAdminName() +"'</td> <td>'" + entry.value.getSubject() + "'</td><td>'" + entry.value.getDiscription() + "'</td><td>' "+ entry.value.getTicket_Status() + "'</td><td>'"+ entry.value.getTimeOfCreation() +"'</td> </tr>'");
+					
+					}  
+					out.println("</table>"); */
+				
+				
+				%>
+				
+				
+				 var dynamicTable = '<table width="100%" border="1"> <tr ><th>Ticket No</th><th>Admin Name</th><th>Subject</th><th>Discription</th><th>Status</th><th>Time of Creation</th></tr>';
+				
+			 	<c:forEach items="${userTickets}" var="entry">
+				    var key = ${entry.key};
+				    alert('loop')
+				   // var value = ${entry.value};
+				    dynamicTable += '<tr> <td>'+ key +'</td> <td>'+ ${entry.value.getAdminName()} +'</td> <td>'+ ${entry.value.getSubject()} +'</td><td>'+ ${entry.value.getDiscription()} +'</td><td>'+ ${entry.value.getTicket_Status()} +'</td><td>'+ ${entry.value.getTimeOfCreation()} +'</td> </tr>';
+				    
+				</c:forEach> 
+					
+				dynamicTable += '</table>';
+				
+				console.log(dynamicTable);
+				
+				
+				$('#UserTickets_for_chat').html(dynamicTable);
+					
+					
+					
+					
+				}else{
+					
+					divElement.style.display = 'none';
+				}
+
+
+			});
+
+		});  --%>
+		
+		
+
+		$(document).ready(function() {
+
+			$('#ArchiveTickets').click(function() {
+				
+					
+				var divElement = document.getElementById("user_Tickets"	);
+
+				if (divElement.style.display === 'none') {
+					divElement.style.display = 'block';
+					
+					var object = {
+							type : 'GET',
+							url : 'GetArchivedTickets',
+							error : function() {
+								window.location = "Userlogin.jsp";
+							}
+						};
+
+						$.ajax(object).done(function(response) {
+							$('#user_Tickets').html(response);
+						});
+					
+					
+					
+				}else{
+					divElement.style.display = 'none';
+				}
+					
+					
+
+
+			});
+
+		}); 
+		
+		
+		function ticketArchiveFunction(ticketId){
+			
+			var object = {
+					type : 'POST',
+					url : 'GetArchivedTickets',
+					data : {
+						ticketId: ticketId
+					}, 
+					error : function() {
+						window.location = "AdminHomePage.jsp";
+					}
+				};
+
+				$.ajax(object).done(function(response) {
+					$('#'+ticketId).remove();
+					
+				});
+			
+		}
+		
+		
 
 	</script>
 

@@ -20,7 +20,7 @@ public class Userdetails {
 		if (isAdmin) {
 			getUserTicketsQuery = "select td.tickect_id  as ticket_Id, ud.user_name as user_name, td.subject , td.discription,sd.status,td.time_creation\n"
 					+ "from ticket_details as td\n" + "LEFT join user_details as ud on ud.user_id = td.user_id\n"
-					+ "LEFT join status_details as sd on sd.status_id = td.status_id\n" + "where td.admin_id= ? and td.status_id in(1,2);";
+					+ "LEFT join status_details as sd on sd.status_id = td.status_id\n" + "where td.admin_id= ? ";
 		} else {
 
 			getUserTicketsQuery = "select td.tickect_id  as ticket_Id, ud.user_name as admin_name, td.subject , td.discription,sd.status,td.time_creation\n"
@@ -121,16 +121,33 @@ public class Userdetails {
 
 	}
 
-	public void closeSupportRequest(int ticketId) throws SQLException {
+	public void supportRequestStatusChanger(int ticketId , int choice) throws SQLException {
 
 		
 		ValidatorClass validatorClass = new ValidatorClass();
 		
+		String closeSupportRequestQuery = null;
+		
+		if(choice == 1) {
+			closeSupportRequestQuery = "update ticket_details\n"
+					+ "set status_id=3\n"
+					+ "where tickect_id=?; ";
+			
 
-		String closeSupportRequestQuery = "update ticket_details\n"
-				+ "set status_id=3\n"
-				+ "where tickect_id=?; ";
+		}
+		else if(choice == 2) {
+			closeSupportRequestQuery = "update ticket_details\n"
+					+ "set status_id=4\n"
+					+ "where tickect_id=?; ";
+			
+		}
+		else if(choice == 3) {
+			closeSupportRequestQuery = "update ticket_details\n"
+					+ "set status_id=5\n"
+					+ "where tickect_id=?; ";
+		}
 
+		
 		PreparedStatement preparedStatement = validatorClass.getPreparedStatement(closeSupportRequestQuery);
 
 		preparedStatement.setInt(1, ticketId);

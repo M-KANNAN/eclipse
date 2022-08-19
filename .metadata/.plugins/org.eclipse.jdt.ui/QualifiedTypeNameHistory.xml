@@ -36,23 +36,19 @@
     <fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
     <fullyQualifiedTypeName name="com.ithelpdesk.javaclasses.UserLoginClass"/>
     <fullyQualifiedTypeName name="com.ithelpdesk.javaclasses.TicketRaiser"/>
-    <fullyQualifiedTypeName name="com.ithelpdesk.javaclasses.ValidatorClass"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
-    <fullyQualifiedTypeName name="com.ithelpdesk.javaclasses.TicketDetails"/>
     <fullyQualifiedTypeName name="com.ithelpdesk.servlet.UserTicketUpdadter"/>
     <fullyQualifiedTypeName name="com.ithelpdesk.servlet.UpdateRaisedSupportTickets"/>
     <fullyQualifiedTypeName name="com.ithelpdesk.javaclasses.UserTicketUpdater"/>
     <fullyQualifiedTypeName name="java.util.HashMap"/>
     <fullyQualifiedTypeName name="java.util.LinkedHashMap"/>
     <fullyQualifiedTypeName name="com.ithelpdesk.javaclasses.ChatDetailsForTicket"/>
-    <fullyQualifiedTypeName name="java.util.Map.Entry"/>
     <fullyQualifiedTypeName name="com.ithelpdesk.javaclasses.ChatPojo"/>
     <fullyQualifiedTypeName name="java.sql.Timestamp"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="java.sql.SQLException"/>
     <fullyQualifiedTypeName name="java.lang.ArrayIndexOutOfBoundsException"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="com.ithelpdesk.servlet.GetChatDetails"/>
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
@@ -60,4 +56,8 @@
     <fullyQualifiedTypeName name="com.ithelpdesk.javaclasses.Userdetails"/>
     <fullyQualifiedTypeName name="java.io.PrintWriter"/>
     <fullyQualifiedTypeName name="com.ithelpdesk.javaclasses.UserMessager"/>
+    <fullyQualifiedTypeName name="java.util.Map.Entry"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="com.ithelpdesk.javaclasses.TicketDetails"/>
+    <fullyQualifiedTypeName name="com.ithelpdesk.javaclasses.ValidatorClass"/>
 </qualifiedTypeNameHistroy>

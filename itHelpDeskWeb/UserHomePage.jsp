@@ -1,4 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page import="com.ithelpdesk.javaclasses.TrashCleaner"
+
+	language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -11,6 +13,16 @@
 
 </head>
 <body>
+
+
+<%
+
+new TrashCleaner().trashCleaner();
+
+
+%>
+
+
 	<script type="text/javascript" src="jsQuery/jquery-3.6.0.js"></script>
 
 
@@ -38,8 +50,8 @@
 				<ul>
 					<li id="Ticket_Raiser"><a href="#">Raise a Ticket</a></li>
 					<li id="View_Tickets"><a href="#">View a Ticket</a></li>
-					<li id="Update_Tickets"><a href="#">Update a Ticket</a></li>
-					<li id="Chatbox"><a href="#">Customer Support</a></li>
+					<!-- <li id="Update_Tickets"><a href="#">Update a Ticket</a></li> -->
+					<!-- <li id="Chatbox"><a href="#">Customer Support</a></li> -->
 
 				</ul>
 
@@ -186,13 +198,111 @@
 
 		});
 
-		function getIdFunction(id) {
-			alert("Ticket Number : "+id);
+		//chat Function
+		
+		function getIdFunction(ticketNo) {
+			var object = {
+					type : 'POST',
+					data : {
+						ticketNo : ticketNo
+						
+					},
+					url : 'ChattingImplementation',
+					error : function(error) {
+						alert(error.stack);
+						window.location = "UserHomePage.jsp";
+					}
+				};
+
+				$.ajax(object).done(function(response) {
+					$('#chat_details').html(response);
+				});
 		}
 		
 		//update function
-
+		
+		
 		$(document).ready(function() {
+
+			$('#Update_Tickets').click(function() {
+
+				var divElement = document.getElementById("ticket_Updator");
+
+				if (divElement.style.display === 'none') {
+
+					divElement.style.display = 'block';
+					var object = {
+						type : 'GET',
+						url : 'GetTicketNumber',
+						error : function(error) {
+							alert(error.stack);
+							window.location = "Userlogin.jsp";
+						}
+					};
+
+					$.ajax(object).done(function(response) {
+						$('#ticket_Updator').html(response);
+					});
+
+				} else {
+					divElement.style.display = 'none';
+				}
+
+			});
+
+		});
+
+		function ticketUpdateFunction(ticketNo) {
+
+
+			var text = "Sure you want to update press OK!";
+			if (confirm(text) == true) {
+
+				var divElement = document.getElementById("Ticket_Raiser_form");
+
+				if (divElement.style.display === 'none') {
+					
+					alert("none");
+
+					divElement.style.display = 'block';
+					var object = {
+						type : 'GET',
+						url : 'UpdateRaisedSupportTickets',
+						data : {
+							ticketNo : ticketNo
+						},
+						error : function(error) {
+							alert(error.stack);
+							window.location = "Userlogin.jsp";
+						}
+					};
+
+					$.ajax(object).done(function(response) {
+						$('#Ticket_Raiser_form').html(response);
+
+					});
+
+				} else {
+					alert("block");
+					divElement.style.display = 'none';
+				}
+
+			} else {
+
+				var divElement = document.getElementById("ticket_Updator");
+
+				if (divElement.style.display === 'none') {
+					divElement.style.display = 'block';
+				} else {
+					divElement.style.display = 'none';
+				}
+
+			}
+
+		}
+		
+
+		/* $(document).ready(function() {
 
 			$('#Update_Tickets').click(function() {
 
@@ -265,11 +375,11 @@
 
 			}
 
-		}
+		} */
 
 		// update function
 
-		$(document).ready(function() {
+		/* $(document).ready(function() {
 
 			$('#button_Update').click(function() {
 
@@ -298,40 +408,11 @@
 
 				});
 
-		});
+		}); */
 
 		//chat function
 			
-		$(document).ready(function() {
-
-			$('#Chatbox').click(function() {
-
-				var divElement = document.getElementById("user_Tickets");
-
-				/* if (divElement.style.display === 'none') {
-
-					divElement.style.display = 'block'; */
-
-					var object = {
-						type : 'GET',
-						url : 'UserTickets_for_chat',
-						error : function() {
-							window.location = "Userlogin.jsp";
-						}
-					};
-
-					$.ajax(object).done(function(response) {
-						$('#UserTickets_for_chat').html(response);
-					});
-
-				/* } else {
-					divElement.style.display = 'none';
-				} */
-
-			});
-
-		});
-		
+		//chat implemetation 2
 		
 		function ticketChatFunction(ticketNo){
 			
@@ -363,16 +444,17 @@
 
 		}
 		
+		
 		function messageFunction(){
 			
-			var ticketNo= document.getElementById("ticket_Chat").value;  
+		//	var ticketNo= document.getElementById("ticket_Chat").value;  
 			
 			var message=document.getElementById("message_sender").value;
 			
 			var object = {
 					type : 'POST',
 					data : {
-						ticketNo : ticketNo,
+						//ticketNo : ticketNo,
 						message : message
 					},
 					url : 'UserMessageSender',
@@ -389,13 +471,15 @@
 					}
 					else{
 						alert("Message Send sucessfully");
+						$('#chat_details').hide();
 					}
 					
 				});
 				
-				ticketChatFunction(ticketNo);
+				//ticketChatFunction(ticketNo);
 			
 		}
+		
 
 	</script>
 

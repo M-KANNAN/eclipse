@@ -41,7 +41,7 @@ public class PickSupportRequest extends HttpServlet {
 
 				response.setContentType("text/HTML");
 				
-				if(userTickets.size() > 1) {
+				if(userTickets.size() > 0) {
 					
 					out.println("<label for='ticket_Picker'>Choose a Ticket :</label>");
 

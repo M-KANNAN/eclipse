@@ -44,6 +44,8 @@ public class ViewRaisedSupportTickets extends HttpServlet {
 
 				for (Entry<Integer, TicketDetails> entry : userTickets.entrySet()) {
 					TicketDetails details = entry.getValue();
+					
+					
 
 					out.print("<tr id=" + entry.getKey() + " value=" + entry.getKey() + " style='cursor: pointer;"
 							+ "text-align: center;'><td>" + entry.getKey() + "</td><td>"
@@ -51,11 +53,13 @@ public class ViewRaisedSupportTickets extends HttpServlet {
 							+ "</td><td>" + details.getDiscription() + "</td><td>" + details.getTicket_Status()
 							+ "</td><td>" + details.getTimeOfCreation()
 							+ "</td>"
-							//+ "<td> <button onclick='AdminUpdateFunction(" + entry.getKey()
-						//	+ ")'>Change Admin</button></td>"
+							+ "<td> <button onclick='ticketUpdateFunction(" + entry.getKey()
+							+ ")'>Update</button></td>"
+						
+							+ "<td><button onclick='getIdFunction(" + entry.getKey()+ ")'>Chat</button></td>"
+					
 							+ "<td> <button onclick='ticketCloseFunction(" + entry.getKey()
-							+ ")'>Close Ticket</button></td>"
-							+ "<td><button onclick='getIdFunction(" + entry.getKey()+ ")'>Chat</button></td>");
+							+ ")'>Close Ticket</button></td></tr>");
 
 				}
 				out.print("</table>");

@@ -28,9 +28,11 @@ public class UpdateRaisedSupportTickets extends HttpServlet {
 
 		HttpSession httpSession = request.getSession();
 
-		if (httpSession.getAttribute("UserId") != null && request.getParameter("value") != null) {
+		if (httpSession.getAttribute("UserId") != null && request.getParameter("ticketNo") != null) {
 			
-			ticketNo=Integer.parseInt(request.getParameter("value")) ;
+			ticketNo=Integer.parseInt(request.getParameter("ticketNo")) ;
+			
+//			System.out.println(ticketNo);
 			
 			int userId = Integer.parseInt(httpSession.getAttribute("UserId").toString());
 			

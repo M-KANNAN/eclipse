@@ -6,8 +6,12 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="getIdFunction"/>
+		<item key="selection" value="CloseSupportTicket"/>
 		<list key="findhistory">
+			<item value="CloseSupportTicket"/>
+			<item value="Chatbox"/>
+			<item value="UserTickets_for_chat"/>
+			<item value="user_Tickets"/>
 			<item value="getIdFunction"/>
 			<item value="ticketChatFunction"/>
 		</list>
