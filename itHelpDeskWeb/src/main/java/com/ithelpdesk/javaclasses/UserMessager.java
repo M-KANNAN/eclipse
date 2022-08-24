@@ -14,8 +14,8 @@ public class UserMessager {
 		
 		this.closedTicketHander(ticketId);
 
-		String chatQuery = "insert into chat_details(sender_id,reciver_id,chat_message,isadmin,ticket_id,timeof_creation)\n"
-				+ "values(?,?,?,?,?,?);";
+		String chatQuery = "insert into chat_details(sender_id,reciver_id,chat_message,ticket_id,timeof_creation)\n"
+				+ "values(?,?,?,?,?);";
 		
 		int ticketUserId=this.getUserId(ticketId);
 		
@@ -42,20 +42,12 @@ public class UserMessager {
 //		System.out.println(message);
 		
 		
-		if(userId == ticketAdminId) {
-			preparedStatement.setBoolean(4, true);
-		}
-		else {
-			preparedStatement.setBoolean(4, false);
-		}
 		
-		
-		
-		preparedStatement.setInt(5, ticketId);
+		preparedStatement.setInt(4, ticketId);
 		
 //		System.out.println(ticketId);
 		
-		preparedStatement.setTimestamp(6, new Timestamp(System.currentTimeMillis()));
+		preparedStatement.setTimestamp(5, new Timestamp(System.currentTimeMillis()));
 		
 		preparedStatement.executeUpdate();
 		
@@ -72,7 +64,7 @@ public class UserMessager {
 		
 		String closedTicketQuerry = "update ticket_details\n"
 				+ "set status_id=2\n"
-				+ "where tickect_id= ? and status_id=3;";
+				+ "where ticket_id= ? and status_id=3;";
 
 		PreparedStatement preparedStatement = validatorClass.getPreparedStatement(closedTicketQuerry);
 		
@@ -87,7 +79,7 @@ public class UserMessager {
 		
 		ValidatorClass validatorClass = new ValidatorClass();
 
-		String chatQuery = "select admin_id from ticket_details where tickect_id=?;";
+		String chatQuery = "select techician_id from ticket_details where ticket_id=?;";
 
 		PreparedStatement preparedStatement = validatorClass.getPreparedStatement(chatQuery);
 		
@@ -104,7 +96,7 @@ public class UserMessager {
 		
 		ValidatorClass validatorClass = new ValidatorClass();
 
-		String chatQuery = "select user_id from ticket_details where tickect_id=?;";
+		String chatQuery = "select user_id from ticket_details where ticket_id=?;";
 
 		PreparedStatement preparedStatement = validatorClass.getPreparedStatement(chatQuery);
 		

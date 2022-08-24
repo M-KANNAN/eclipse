@@ -1,3 +1,4 @@
+<%@page import="com.ithelpdesk.javaclasses.TrashCleaner"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,6 +12,14 @@
 </head>
 
 <body>
+
+
+<%
+
+new TrashCleaner().trashCleaner();
+
+
+%>
 
         <div >
         

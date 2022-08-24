@@ -54,10 +54,10 @@
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="com.ithelpdesk.servlet.GetAdminUsers"/>
     <fullyQualifiedTypeName name="com.ithelpdesk.javaclasses.Userdetails"/>
-    <fullyQualifiedTypeName name="java.io.PrintWriter"/>
     <fullyQualifiedTypeName name="com.ithelpdesk.javaclasses.UserMessager"/>
     <fullyQualifiedTypeName name="java.util.Map.Entry"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="com.ithelpdesk.javaclasses.TicketDetails"/>
     <fullyQualifiedTypeName name="com.ithelpdesk.javaclasses.ValidatorClass"/>
+    <fullyQualifiedTypeName name="java.io.PrintWriter"/>
 </qualifiedTypeNameHistroy>

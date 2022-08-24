@@ -12,8 +12,8 @@ public class TicketRaiser {
 		
 		ValidatorClass validatorClass=new ValidatorClass();
 		
-		String userTicketQuery="insert into ticket_details(user_id,subject,discription,time_creation,status_Id)\n"
-				+ "values\n" + "(?,?,?,?,?) RETURNING tickect_id ;";
+		String userTicketQuery="insert into ticket_details(user_id,subject,description,time_creation,status_Id)\n"
+				+ "values\n" + "(?,?,?,?,?) RETURNING ticket_id ;";
 
 		PreparedStatement preparedStatement=validatorClass.getPreparedStatement(userTicketQuery);
 

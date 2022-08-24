@@ -22,15 +22,6 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <body>
 
 
-<%
-
-new TrashCleaner().trashCleaner();
-
-
-%>
-
-
-
 
 	<%-- 
 					<!-- //Declearation tag -->
@@ -84,15 +75,14 @@ new TrashCleaner().trashCleaner();
 
 				<ul>
 					<li id="Ticket_Raiser"><a href="#">Raise a Ticket</a></li>
-					<li id="View_Tickets"><a href="#">View a Ticket</a></li>
-					<!-- <li id="Update_Tickets"><a href="#">Update a Ticket</a></li> -->
-					<li id="PickRequest" onclick=""><a href="#">Pick a support Request</a></li>
+					<li id="View_Tickets"><a href="#">View Raised Ticket</a></li>
+					<!-- <li id="MyclosedTickets"><a href="#">My Closed Ticket</a></li> -->
+					<li id="PickRequest"><a href="#">Pick a support Request</a></li>
 					<li id="MyRequest"><a href="#">My Assigned Tickets</a></li>
-					<li id="ClosedTickets"><a href="#">Closed Tickets</a></li>
+					<li id="ClosedTickets"><a href="#">Assigned Closed Tickets</a></li>
 					<li id="ArchiveTickets"><a href="#">Archived Tickets</a></li>
 
 				</ul>
-
 
 				<div id="Ticket_Raiser_form">
 
@@ -183,6 +173,8 @@ new TrashCleaner().trashCleaner();
 	</div>
 
 	<script type="text/javascript">
+	
+	
 		//logout function
 		$(document).ready(function() {
 
@@ -258,7 +250,7 @@ new TrashCleaner().trashCleaner();
 
 		// chat Implementation
 		
-		function getIdFunction(ticketNo) {
+		function getIdFunction(ticketNo) { //  check wheather admin is available to chat 
 			
 			
 			var object = {
@@ -282,7 +274,7 @@ new TrashCleaner().trashCleaner();
 		}
 		
 		
-		function ticketChatFunction(ticketNo){
+		function ticketChatFunction(ticketNo){ //
 			
 			var divElement = document.getElementById("chat_details");
 
@@ -349,7 +341,7 @@ new TrashCleaner().trashCleaner();
 		
 		//update function
 
-		$(document).ready(function() {
+		$(document).ready(function() { // not required
 
 			$('#Update_Tickets').click(function() {
 
@@ -388,8 +380,6 @@ new TrashCleaner().trashCleaner();
 				var divElement = document.getElementById("Ticket_Raiser_form");
 
 				if (divElement.style.display === 'none') {
-					
-					alert("none");
 
 					divElement.style.display = 'block';
 					var object = {
@@ -410,7 +400,7 @@ new TrashCleaner().trashCleaner();
 					});
 
 				} else {
-					alert("block");
+					
 					divElement.style.display = 'none';
 				}
 
@@ -462,8 +452,6 @@ new TrashCleaner().trashCleaner();
 				});
 
 		}); */
-		
-		
 		
 		//pick a user Request
 		
@@ -534,7 +522,6 @@ new TrashCleaner().trashCleaner();
 		
 		$(document).ready(function() {
 			
-
 			$('#MyRequest').click(function() {
 				
 			var divElement = document.getElementById("user_Tickets");
@@ -585,14 +572,15 @@ new TrashCleaner().trashCleaner();
 				};
 
 				$.ajax(object).done(function(response) {
-					$('#'+ticketId).remove();
+					//$('#'+ticketId).remove();
+					/* alert(document.getElementById(ticketId).cells[4].innerHTML); */
+					document.getElementById(ticketId).cells[4].innerHTML="closed";
 					alert("Ticket closed sucessfully");
 					
 				});
 		}
 		
-		
-		
+
 		function AdminUpdateFunction(ticketId){
 			
 			var object = {
@@ -642,7 +630,7 @@ new TrashCleaner().trashCleaner();
 		}
 		
 		
-		//closed to archive  function
+		//closed to archive  function 
 		
 		$(document).ready(function() {
 
@@ -763,6 +751,7 @@ new TrashCleaner().trashCleaner();
 		});  --%>
 		
 		
+		//Archive tickets
 
 		$(document).ready(function() {
 
@@ -791,15 +780,10 @@ new TrashCleaner().trashCleaner();
 				}else{
 					divElement.style.display = 'none';
 				}
-					
-					
-
-
+				
 			});
 
 		}); 
-		
-		
 		function ticketArchiveFunction(ticketId){
 			
 			var object = {
@@ -819,8 +803,6 @@ new TrashCleaner().trashCleaner();
 				});
 			
 		}
-		
-		
 
 	</script>
 

@@ -41,7 +41,7 @@ public class GetClosedTickets extends HttpServlet {
 
 				out.print("<table border='1' width='100%' color = 'snow'");
 				out.print(
-						"<tr ><th>Ticket No</th><th>Admin Name</th><th>Subject</th><th>Discription</th><th>Status</th><th>Time of Creation</th>");
+						"<tr ><th>Ticket No</th><th>User Name</th><th>Subject</th><th>Discription</th><th>Status</th><th>Time of Creation</th>");
 
 				// update
 
@@ -51,7 +51,7 @@ public class GetClosedTickets extends HttpServlet {
 
 					
 					if ("closed".equals(details.getTicket_Status())) {
-						
+						             
 						out.print("<tr id=" + entry.getKey() + " value=" + entry.getKey() + " style='cursor: pointer;"
 								+ "text-align: center;'><td>" + entry.getKey() + "</td><td>"
 								+ userdetails.getAdminName(details.getAdminName()) + "</td><td>" + details.getSubject()

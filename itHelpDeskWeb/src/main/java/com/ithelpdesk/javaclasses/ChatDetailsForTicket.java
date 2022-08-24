@@ -32,7 +32,7 @@ public class ChatDetailsForTicket {
 					+ "LEFT join user_details as ud on ud.user_id = cd.sender_id\n"
 					+ "left join user_details as ud_U on ud_U.user_id = cd.reciver_id\n"
 					+ "where ticket_id in\n"
-					+ "(select tickect_id from ticket_details where USER_id =?) order by cd.timeof_creation DESC;";
+					+ "(select ticket_id from ticket_details where USER_id =?) order by cd.timeof_creation DESC;";
 			
 		}
 		else {
@@ -41,7 +41,7 @@ public class ChatDetailsForTicket {
 					+ "LEFT join user_details as ud on ud.user_id = cd.sender_id\n"
 					+ "left join user_details as ud_U on ud_U.user_id = cd.reciver_id\n"
 					+ "where ticket_id in\n"
-					+ "(select tickect_id from ticket_details where ADMIN_id =?) order by cd.timeof_creation DESC;";
+					+ "(select ticket_id from ticket_details where  =?) order by cd.timeof_creation DESC;";
 			
 		}
 			
@@ -82,8 +82,8 @@ public class ChatDetailsForTicket {
 
 		ValidatorClass validatorClass=new ValidatorClass();
 		
-		String isChatAvaiabeQuerry="select admin_id from ticket_details\n"
-				+ "where tickect_id= ? ;";
+		String isChatAvaiabeQuerry="select techician_id from ticket_details\n"
+				+ "where ticket_id= ? ;";
 
 		PreparedStatement preparedStatement=validatorClass.getPreparedStatement(isChatAvaiabeQuerry);
 		

@@ -29,7 +29,7 @@ public boolean getValidatedUser(String name,String pass ,boolean isAdmin) throws
 		
 		ValidatorClass validatorClass=new ValidatorClass();
 		
-		String insertUserQuery="insert into user_details(user_name,user_pass,is_admin)\n"
+		String insertUserQuery="insert into user_details(user_name,user_pass,is_technician)\n"
 				+ "VALUES\n"
 				+ "(?,?,?) ;";
 		

@@ -31,19 +31,19 @@ public class UserTicketRaiser extends HttpServlet {
 		
 		String discription=request.getParameter("discription");
 		
-		out.println("<script type=\"text/javascript\">");
-		out.println("alert('!!! "+subject+" !!!');");
-		out.println("alert('!!! "+discription+" !!!');");
-		out.println("</script>");
-		
+//		out.println("<script type=\"text/javascript\">");
+//		out.println("alert('!!! "+subject+" !!!');");
+//		out.println("alert('!!! "+discription+" !!!');");
+//		out.println("</script>");
+//		
 		
 		
 		if(subject != null && discription != null && ! "".equals(subject.trim()) && ! "".equals(discription.trim())) {
 			
-			out.println("<script type=\"text/javascript\">");
-			out.println("alert('!!! entered !!!');");
-			out.println("location='UserHomePage.jsp#';");
-			out.println("</script>");
+//			out.println("<script type=\"text/javascript\">");
+//			out.println("alert('!!! entered !!!');");
+//			out.println("location='UserHomePage.jsp#';");
+//			out.println("</script>");
 			
 			ValidatorClass validatorClass=new ValidatorClass();
 			

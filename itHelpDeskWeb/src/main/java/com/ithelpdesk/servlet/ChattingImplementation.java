@@ -51,7 +51,7 @@ public class ChattingImplementation extends HttpServlet {
 					
 				}
 				else {
-					out.println("<script>alert('!!!Chat Unavailabe !!!') ;</script>");
+					out.println("<script>alert('!!! Chat Unavailabe !!!') ;</script>");
 				}
 			} catch (SQLException e) {
 				

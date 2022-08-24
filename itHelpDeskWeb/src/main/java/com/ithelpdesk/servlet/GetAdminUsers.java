@@ -41,7 +41,7 @@ public class GetAdminUsers extends HttpServlet {
 
 				response.setContentType("text/HTML");
 
-				out.println("<label for='admin_Details'>Choose a Admin :</label>");
+				out.println("<label for='admin_Details'>Choose a Technician :</label>");
 
 				out.println("<select name='admin_Details' id='available_Admin' style=width:' 60px;' >");
 

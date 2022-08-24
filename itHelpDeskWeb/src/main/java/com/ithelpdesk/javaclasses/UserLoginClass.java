@@ -49,9 +49,9 @@ public class UserLoginClass {
 
 	public boolean userIsAdmin(int userId) throws SQLException {
 		
-		ValidatorClass validatorClass=new ValidatorClass();
+		ValidatorClass validatorClass=new ValidatorClass(); 
 		
-		String isAdminQuery="select is_admin from user_details\n"
+		String isAdminQuery="select is_technician from user_details\n"
 				+ "where user_id= ?;";
 		
 		PreparedStatement preparedStatement=validatorClass.getPreparedStatement(isAdminQuery);

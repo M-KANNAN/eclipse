@@ -42,7 +42,7 @@ public class GetArchivedTickets extends HttpServlet {
 
 				out.print("<table border='1' width='100%' color = 'snow'");
 				out.print(
-						"<tr ><th>Ticket No</th><th>Admin Name</th><th>Subject</th><th>Discription</th><th>Status</th><th>Time of Creation</th>");
+						"<tr ><th>Ticket No</th><th>Techician Name</th><th>Subject</th><th>Discription</th><th>Status</th><th>Time of Creation</th>");
 
 				// update
 

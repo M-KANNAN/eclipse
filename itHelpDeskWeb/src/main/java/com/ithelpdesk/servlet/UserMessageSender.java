@@ -29,7 +29,6 @@ public class UserMessageSender extends HttpServlet {
 		
 			String uID=httpSession.getAttribute("UserId").toString();
 	
-			
 			String message=request.getParameter("message");
 		
 
@@ -40,6 +39,8 @@ public class UserMessageSender extends HttpServlet {
 			int ticketId=GetChatDetails.ticketId ;
 			try {
 				new UserMessager().userMessager(userId,ticketId,message);
+				
+				out.println("<script> alert('Message sended successfully')</script>");
 			} catch (SQLException e) {
 			
 				e.printStackTrace();
@@ -47,8 +48,8 @@ public class UserMessageSender extends HttpServlet {
 			
 		}
 		else {
-			response.setStatus(203);
-			System.out.println("else");
+			out.println("<script> alert('Message cannot be send')</script>");
+			
 		}
 		
 	}

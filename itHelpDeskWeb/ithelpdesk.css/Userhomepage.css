@@ -145,3 +145,6 @@ table {
 	width: 100%;
 	color: snow;
 }
+textarea {
+   resize: none;
+}

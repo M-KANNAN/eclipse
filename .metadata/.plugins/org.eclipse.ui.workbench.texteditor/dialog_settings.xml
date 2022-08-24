@@ -6,21 +6,32 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="CloseSupportTicket"/>
+		<item key="selection" value="ticketCloseFunction"/>
 		<list key="findhistory">
+			<item value="ticketCloseFunction"/>
 			<item value="CloseSupportTicket"/>
+			<item value="is_admin"/>
+			<item value="chat_details"/>
+			<item value="status_details"/>
+			<item value="status"/>
+			<item value="admin_id"/>
+			<item value="discription"/>
+			<item value="discription "/>
+			<item value="tickect_id"/>
+			<item value="tickect_id "/>
+			<item value="My Assigned"/>
+			<item value="myassigned"/>
 			<item value="Chatbox"/>
 			<item value="UserTickets_for_chat"/>
-			<item value="user_Tickets"/>
-			<item value="getIdFunction"/>
-			<item value="ticketChatFunction"/>
 		</list>
 		<list key="replacehistory">
+			<item value="techician_id"/>
+			<item value=""/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="574"/>
-		<item key="DIALOG_Y_ORIGIN" value="182"/>
+		<item key="DIALOG_X_ORIGIN" value="805"/>
+		<item key="DIALOG_Y_ORIGIN" value="419"/>
 		<item key="DIALOG_WIDTH" value="292"/>
 		<item key="DIALOG_HEIGHT" value="402"/>
 		<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>

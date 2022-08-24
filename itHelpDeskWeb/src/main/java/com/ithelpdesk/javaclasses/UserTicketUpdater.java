@@ -13,8 +13,8 @@ public class UserTicketUpdater {
 		
 		String userTicketUpdateQuery="Update ticket_details\n"
 				+ "set subject= ?,\n"
-				+ "discription= ? \n"
-				+ "where tickect_id=?;";
+				+ "description= ? \n"
+				+ "where ticket_id=?;";
 
 		PreparedStatement preparedStatement=validatorClass.getPreparedStatement(userTicketUpdateQuery);
 		
@@ -25,8 +25,6 @@ public class UserTicketUpdater {
 		preparedStatement.executeUpdate();
 		
 		preparedStatement.close();
-		
-		
 		
 		
 	}
